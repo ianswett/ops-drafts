@@ -1002,7 +1002,7 @@ Table of Contents
    As explained in section Section 2.6, QUIC connection IDs are opaque
    byte fields that are expressed consistently across all QUIC versions
    [QUIC-INVARIANTS] and used by the endpoints to survive address
-   rebindings.  While this may appear as an opportunities to minimiize
+   rebindings.  While this may appear as an opportunities to minimize
    NAT port usage or to support the work of the QUIC server by hinding
    path changes, use of the connection ID by NAT to intentify flows will
    cause connection failure when the connection ID changes.  Wrongly
