@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-02-14T00:53:54.382131+00:00",
+  "timestamp": "2021-02-16T00:52:08.834955+00:00",
   "repo": "quicwg/ops-drafts",
   "labels": [
     {
@@ -57,6 +57,11 @@
       "name": "meeting-agenda",
       "description": "Items for discussion in a WG meeting",
       "color": "F9D0C4"
+    },
+    {
+      "name": "ready-to-merge",
+      "description": "",
+      "color": "C26203"
     }
   ],
   "issues": [
@@ -3168,11 +3173,13 @@
         "britram"
       ],
       "labels": [
-        "-manageability"
+        "-manageability",
+        "editorial",
+        "has PR"
       ],
       "body": "It seems to me that QUIC is no different to other transports in respect of being able to utilise other port numbers, and it would be worth noting that this is normal. The present text might perhaps suggest this is specific to QUIC. Should the text reference RFC 7605 or something else just to explain ports don't imply specific application behaviour, but could infer this?.\r\n",
       "createdAt": "2021-02-04T11:23:40Z",
-      "updatedAt": "2021-02-12T12:57:01Z",
+      "updatedAt": "2021-02-15T16:30:38Z",
       "closedAt": null,
       "comments": []
     },
@@ -3235,11 +3242,13 @@
         "britram"
       ],
       "labels": [
-        "-manageability"
+        "-manageability",
+        "editorial",
+        "has PR"
       ],
       "body": "Sect 3.7.2 : \u201cis optional in QUIC\u201d. \r\n\r\nI think it would be helpful to say more about the spin-bit definition for the current version of the specification, and a cross-reference is needed here. \r\nSimilarly, \u201cAn endpoint not participating...\u201d to me this description applies to the current specification, not an invariant of QUIC in general.\r\n",
       "createdAt": "2021-02-04T11:39:23Z",
-      "updatedAt": "2021-02-12T12:56:17Z",
+      "updatedAt": "2021-02-15T16:32:13Z",
       "closedAt": null,
       "comments": []
     },
@@ -3255,11 +3264,12 @@
         "britram"
       ],
       "labels": [
-        "-manageability"
+        "-manageability",
+        "has PR"
       ],
       "body": "The text describes an example for measuring the average RTT. I like that, but I think we should call out a little that the mean RTT is only one metric. When looking at management info, I'm often interested in min/max and variance...\r\n\r\nSo: \u201cA simple linear smoothing... to get a more stable estimate\u201d. Quite so for a table average RTT. I\u2019d prefer it if we could say something about RTT variance at this point. To me it is important that RTT measurements are clear, and we should never assume in a Spec that RTT is something specific, but more generally an estimate that needs to consider the variance.\r\n",
       "createdAt": "2021-02-04T11:42:09Z",
-      "updatedAt": "2021-02-12T12:36:50Z",
+      "updatedAt": "2021-02-15T17:15:07Z",
       "closedAt": null,
       "comments": []
     },
@@ -3294,7 +3304,7 @@
       "id": "MDU6SXNzdWU4MDEyMTMyOTU=",
       "title": "Sect 4.6: emphatically NOT RECOMMENDED use of ACK mitigation?",
       "url": "https://github.com/quicwg/ops-drafts/issues/182",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "gorryfair",
       "authorAssociation": "NONE",
       "assignees": [
@@ -3305,8 +3315,8 @@
       ],
       "body": "\r\nThe text says: \u201cand are emphatically NOT RECOMMENDED.\u201d I think I would agree with a strong encouragement to not do this, but I would suggest to not use upper case letters at this point, and I\u2019m not sure \u201cemphatically\u201d is a great word in a RFC :-).\r\n\r\nI\u2019d also note that the volume of ACK traffic really can be a problem that QUIC needs to address, because QUIC over radio (of various types) can be significantly more expensive or lower performant than TCP, precisely because the control/ACK traffic is much more and there is no opportunity for network mitigation - hence it behoves QUIC implementors to use appropriate methods. ",
       "createdAt": "2021-02-04T11:52:58Z",
-      "updatedAt": "2021-02-12T12:38:34Z",
-      "closedAt": null,
+      "updatedAt": "2021-02-15T16:25:16Z",
+      "closedAt": "2021-02-15T16:25:16Z",
       "comments": [
         {
           "author": "mirjak",
@@ -3337,11 +3347,12 @@
       ],
       "labels": [
         "-manageability",
+        "has PR",
         "meeting-agenda"
       ],
       "body": "Sect 4.1 : This contains a statement on the recommendations for middleboxes and NATs, that I can\u2019t understand, and this concerns me.\r\ni.e. to me, the present text suggests that the advice in BCP 127 (aka RFC4787) should be changed for QUIC. I don\u2019t recall this being discussed - was it?\r\n\r\nI don\u2019t actually follow the rationale that says this follows from QUIC being connection-oriented. If the connection close was visible to the device, and it could release state - then this might make sense, but that isn\u2019t exactly what is explained. I\u2019m left unsure how a \u201cQUIC-aware\u201d middlebox is supposed to track this state.\r\n\r\nI'm also unsure how say a NAPT could know the traffic was QUIC, is this suggesting a port-based change. I think I need to understand this proposal.\r\n",
       "createdAt": "2021-02-04T11:56:53Z",
-      "updatedAt": "2021-02-12T12:39:22Z",
+      "updatedAt": "2021-02-15T17:25:33Z",
       "closedAt": null,
       "comments": [
         {
@@ -3366,11 +3377,12 @@
       ],
       "labels": [
         "-manageability",
+        "has PR",
         "meeting-agenda"
       ],
       "body": "Sect 4.8: Reducing the timeout on UDP NATs\r\n\r\n\u201cReducing the timeout on UDP NATs might be tempting in light of this property, but not all QUIC server deployments will be robust to rebinding.\u201d \r\n- so  now,  I did not understand what was being discouraged here. Is this somehow linked to section 4.6\u2019s discussion of holding state?\r\n\r\n(perhaps related to issue #183)",
       "createdAt": "2021-02-04T11:57:57Z",
-      "updatedAt": "2021-02-12T18:01:20Z",
+      "updatedAt": "2021-02-15T17:25:48Z",
       "closedAt": null,
       "comments": [
         {
@@ -3479,12 +3491,12 @@
       ],
       "labels": [
         "-manageability",
-        "editor-ready",
-        "editorial"
+        "editorial",
+        "has PR"
       ],
       "body": "This section contains a series, of assumed editorial comments. (The issue is copied from the QUIC WG list).\r\n\u201cEven thought this bit is fixed in the QUICv1 specification,\u201d\r\n-  This seems like the wrong word: /thought/though/\r\n---\r\n\u201cobservers cannot reliably use\u201c\r\n-Maybe we could avoid \u201creliably\u201d, e.g.:\r\n /cannot depend on this bit as/...\r\n---\r\n\u201cfirst octet in the short packet header.\u201d\r\nwould probably benefit from an indication of bit ordering and cross-reference to the QUIC spec.\r\n---\r\nSect 2.4: \u201cIn the nominal case\u201d - this use of \u201cnominal\u201d was unusual to me, the word is used differently in different English-speaking regions - in some it might mean \u201cmarginal\u201d or only correct at the current time - in other regions it might mean something else. Is \u201cnormal\u201d acceptable in this sentence?\r\n---\r\nSection 2.3: \u201cWe therefore consider\u201d - who is the \u201cwe\u201d, suggest something like \u201cThese are considered...\u201d\r\n---\r\n\u201cin the clear\u201d - would be simpler as \u201cwithout encryption\u201d or \u201cobservable on-path\u201d?\r\n---\r\nThe term \u201cexposes\u201d is used several times, without saying to whom, which I think in the context of this document, could be clearer as \u201cexposes this, making it visible to an on-path observer\u201d. Also this form of wording is consistent with sect 2.7. This also could help explain this in a more positive light to someone wishing to manage a network.\r\n---\r\nSect 2.4: \u201cThe amount of 0-RTT protected data is limited by the initial congestion window, typically around 10 packets [RFC6928].\u201d\r\n- I suggest this should instead be reference to a section in the QUIC spec. (This does in turn point to 6928, but I think the dependency here is on what QUIC says.)\r\n---\r\nSect 2.8\u201d: ...\u201dany manipulation of ... will be detected\u201d\r\nI think the word \u201cmanipulation\u201d hints like it is illicit, can we use neutral language by saying something like \u201cany change by network devices on-path\u201d?\r\n---\r\nSect 3.1: \u201cFirst, it only provides one bit of information and is quite prone to collide with UDP-based protocols other than those that this static bit is meant to allow multiplexing with.\u201c\r\nThis seems to lack a little polish (\u201cquite prone\u201d, \u201cmeant to ...with\u201d).\r\n---\r\nSect 3.3.1.\r\n/through passive measurement/by observation by an on-path observer/\r\n... I think this applies, whether it is measurement, filtering, whatever, so we could use the same term.\r\n---\r\n/which each one byte of zeros/ ... seems an odd set of words to me.\r\n---\r\nSection 4.1: \u201cKeying state off the connection ID may therefore cause undetectable and unrecoverable loss of state in the middle of a connection.  Use of connection ID specifically discouraged for NAT applications.\u201d\r\n... I didn\u2019t find /Keying state/ very helpful... maybe some other words would be clearer. The second sentence seems to miss /is/?\r\n---\r\nSect 4.6: \u201c Distinguishing ACK packets is trivial in TCP,\u201c\r\n- well, this is not really trivial, because there are pure ACKs and data+ACK which makes this complicated. RFC3449 says more.\r\n---",
       "createdAt": "2021-02-04T12:00:57Z",
-      "updatedAt": "2021-02-12T18:37:35Z",
+      "updatedAt": "2021-02-15T17:01:32Z",
       "closedAt": null,
       "comments": [
         {
@@ -3530,12 +3542,12 @@
       ],
       "labels": [
         "-applicability",
-        "editor-ready",
-        "editorial"
+        "editorial",
+        "has PR"
       ],
       "body": "Unused Reference: 'I-D.nottingham-httpbis-retry' is defined on line 861, but no explicit reference was found in the text.",
       "createdAt": "2021-02-04T18:42:27Z",
-      "updatedAt": "2021-02-12T12:41:17Z",
+      "updatedAt": "2021-02-15T17:11:34Z",
       "closedAt": null,
       "comments": []
     },
@@ -3552,12 +3564,12 @@
       ],
       "labels": [
         "-applicability",
-        "editor-ready",
-        "editorial"
+        "editorial",
+        "has PR"
       ],
       "body": "Duplicate reference: RFC7301, mentioned in 'RFC7301', was also mentioned in 'ALPN'.",
       "createdAt": "2021-02-04T18:43:33Z",
-      "updatedAt": "2021-02-12T12:41:18Z",
+      "updatedAt": "2021-02-15T17:11:25Z",
       "closedAt": null,
       "comments": []
     },
@@ -3611,12 +3623,12 @@
       ],
       "labels": [
         "-manageability",
-        "editor-ready",
-        "editorial"
+        "editorial",
+        "has PR"
       ],
       "body": "There are two paragraphs that include 2119-language:\r\n\r\n     RFC 2119 keyword, line 578: '...   RECOMMENDED.  First, it only provid...'\r\n     RFC 2119 keyword, line 969: '...   NOT RECOMMENDED....'\r\nShould these be made lowercase or is a 2119 paragraph needed?",
       "createdAt": "2021-02-04T18:55:42Z",
-      "updatedAt": "2021-02-12T12:41:18Z",
+      "updatedAt": "2021-02-15T17:29:35Z",
       "closedAt": null,
       "comments": []
     },
@@ -3633,12 +3645,12 @@
       ],
       "labels": [
         "-manageability",
-        "editor-ready",
-        "editorial"
+        "editorial",
+        "has PR"
       ],
       "body": "Duplicate reference: draft-ietf-quic-applicability, mentioned in 'QUIC-APPLICABILITY', was also mentioned in 'I-D.ietf-quic-applicability'.",
       "createdAt": "2021-02-04T18:56:23Z",
-      "updatedAt": "2021-02-12T12:41:18Z",
+      "updatedAt": "2021-02-15T17:29:46Z",
       "closedAt": null,
       "comments": []
     },
@@ -3655,12 +3667,12 @@
       ],
       "labels": [
         "-manageability",
-        "editor-ready",
-        "editorial"
+        "editorial",
+        "has PR"
       ],
       "body": "Unused Reference: 'Ding2015' is defined on line 1272, but no explicit reference was found in the text\r\n\r\nUnused Reference: 'IPIM' is defined on line 1293, but no explicit reference was found in the text",
       "createdAt": "2021-02-04T18:58:18Z",
-      "updatedAt": "2021-02-12T12:41:19Z",
+      "updatedAt": "2021-02-15T17:30:00Z",
       "closedAt": null,
       "comments": []
     },
@@ -4154,12 +4166,12 @@
       ],
       "labels": [
         "-applicability",
-        "editor-ready",
-        "editorial"
+        "editorial",
+        "has PR"
       ],
       "body": "The app ID seems to have various places where the text needs a wee polish. I'm sure this is not all, but there are quite a lot of NiTS here. It could be that some of these may be hints at topics that should become issues to be discussed, although I suspect that most (or all) are simply requests for editorial changes to improve clarity.\r\n\r\n---\r\nNiT: Timeliness of the \u201cevidence\u201d.\r\nI agree with what is said, but I think we should be more cautious about current evidence we place in the RFC. \r\n\u201cWhile there is no evidence of widespread, systematic disadvantage\u201d\r\n- can we say \u201cCurrent measurements show no evidence\u2026\u201d or something that captures this.\r\n---\r\nNit: \u201cRobust to rebinding\u201d might be better as \u201crobust to NAT rebinding\u201d.\r\n---\r\nNit: \u201ccan use 0-RTT session resumption,\u201d, I\u2019d suggest a cross reference to section here in the QUIC Spec.\r\n---\r\nNit: \u201cconnections may not be robust\u201d, this combination of may can often be misinterpreted by different usages of English, \u201cmight not\u201d is likely unambiguous.\r\n---\r\nNit: \u201cIn particular, firewalls will often not admit server traffic for which it has not kept state for corresponding packets from the client.\u201d I think this is about what I would call \u201cestablished\u201d state tracking - mixed plurals, could this be something a little like: \u201cIn particular, some firewalls do not admit server traffic for which the firewall has no recent state for  a corresponding packet sent from the client.\u201d\r\n---\r\nNit: \u201cSending PING frames more frequently than every 30 seconds over long idle periods may result in excessive unproductive traffic in some\u201d  - could be another place to refer to RFC8085 o/andr QUIC Spec section.\r\n---\r\nNit: \u201cThis of course only applies \u201c - is it possible to avoid \u201cof course\u201d here? - or if needed, then please do explain more. Maybe \u201cThis approach is valid only when\u2026\u201d or something similar?\r\n---\r\nNiT: \u201cUsing resumption in this way also assumes that the protocol does not accumulate any non-persistent state in association with a connection.\u201d - I\u2019m not sure what the assumption is here? Isn\u2019t this a requirement on the application?\r\n---\r\nNit: \u201cDue to encoding limitations on \u201c. This would read easier if it did not start with \u201cdue to\u201d.\r\n---\r\nNit: \u201cexceptional handling \u201c - is this \u201cexception handling\u201d - or is this something else then maybe this needs discussion?\r\n---\r\nNit: \u201cIf a QUIC receiver has maximum allowed concurrent streams open\u201d - I think this should be:\r\n\u201cIf a QUIC receiver opened has the maximum allowed concurrent streams \u201c\r\n---\r\nNit: \u201cvaluable to expose maximum number of allowed\u201d insert \u201cthe\u201d?\r\n---\r\nNit: for the avoidance of doubt: \u201cwill try to maximally pack packets\u201d - please add \u201cQUIC\u201d before packets.\r\n---\r\nNit: \u201cmay be valuable to indicate to QUIC that all data should be send out immediately\u201d \u2026 I agree, but think this means the QUIC sending stack, because I don\u2019t know the QUIC transport protocol mechanism to do this.\r\n---\r\nNit: Sect 7: \u201cIf a lower-layer address changes\u201d - what is this? an IP address? something more?\r\nand \u201ccan still associate packets with an existing connection\u201d - I\u2019d prefer \u201ctransport\u201d or \u201cendpoint\u201d before connection here, because there are connections at other lower layers, which this isn\u2019t about.\r\n---\r\nNit: \u201cPath validation means that the other endpoint in required\u201d - /other/remote/ ?? /in/is/\r\n---\r\nNit: \u201ccongestion control will also be reset on path migration\u201d is /on/ better /after/ - please refer to the relevant section in the spec.\r\n---\r\nNit: \u201cProbing packets, which cannot carry application data, can be sent on multiple paths at once.\u201d . I think should be \u201cQUIC packet probes\u201d and would be much better with a cross reference to the sections within the spec.\r\n---\r\nNit: \u201cThis frames has two sets of types: one\u201d /This/These/  and /has/have/.\r\n---\r\nNit: \u201cAside from the destination connection ID field of the first packets sent by clients, the connection ID can be zero length. \u201c.  \u201cAside from\u201d reads a little odd, but the intent seems correct, can you reword?\r\n---\r\nNit: \u201cThe most efficient mitigation for these attacks is operational, either by using a load balancing architecture\u201d Agree, but \u201coperational\u201d seems like the sentence is odd, is this appropriate operational practice, or design or something else?\r\n---\r\n\r\n\r\n\r\n\r\n\r\n",
       "createdAt": "2021-02-06T12:25:06Z",
-      "updatedAt": "2021-02-12T12:43:50Z",
+      "updatedAt": "2021-02-15T17:11:44Z",
       "closedAt": null,
       "comments": []
     },
@@ -4334,11 +4346,12 @@
         "martinthomson"
       ],
       "labels": [
-        "-applicability"
+        "-applicability",
+        "has PR"
       ],
       "body": "Though the specification does not insist upon it, most implementations will assume that stream data is reliably delivered in order.  This means that senders will send until every byte is delivered or they decide to reset the stream (possibly based on STOP_SENDING).  And it means that receivers won't make data available until a contiguous span of bytes starting at the last unread offset are available.\r\n\r\nImplementations might act differently, but variations from this behaviour would need to be agreed by both endpoints.",
       "createdAt": "2021-02-09T06:36:20Z",
-      "updatedAt": "2021-02-12T12:55:46Z",
+      "updatedAt": "2021-02-15T17:17:11Z",
       "closedAt": null,
       "comments": [
         {
@@ -4363,12 +4376,12 @@
       ],
       "labels": [
         "-applicability",
-        "editor-ready",
-        "editorial"
+        "editorial",
+        "has PR"
       ],
       "body": "> Mapping of application data to streams is application-specific and described for HTTP/3 in [QUIC-HTTP]. In general, data that can be processed independently, and therefore would suffer from head of line blocking if forced to be received in order, should be transmitted over separate streams. If the application requires certain data to be received in order, that data should be sent on the same stream. If there is a logical grouping of data chunks or messages, streams can be reused, or a new stream can be opened for each chunk/message. If one message is mapped to a single stream, resetting the stream to expire an unacknowledged message can be used to emulate partial reliability on a message basis. If a QUIC receiver has maximum allowed concurrent streams open and the sender on the other end indicates that more streams are needed, it doesn't automatically lead to an increase of the maximum number of streams by the receiver. Therefore it can be valuable to expose maximum number of allowed, currently open and currently used streams to the application to make the mapping of data to streams dependent on this information.\r\n\r\nThat's a lot to work through.  Consider breaking this up a little.  I see a few things:\r\n\r\n1. Concurrency is aided by using more streams where ordering is not necessary or where concurrency is desirable.\r\n2. On the opposite end of things, streams provide ordering where ordering is critical.\r\n3. Sending a message per stream allows messages to be cancelled.\r\n4. Limits on concurrency need to be accounted for.",
       "createdAt": "2021-02-09T06:39:32Z",
-      "updatedAt": "2021-02-12T12:51:45Z",
+      "updatedAt": "2021-02-15T17:11:14Z",
       "closedAt": null,
       "comments": []
     },
@@ -4433,6 +4446,104 @@
       "body": "Section 3 talks about the challenges of 0-RTT, but seems to ignore that very similar challenges exist when TLS 1.3 Early Data is used over TCP.  I think I'd reword this to talk about the similarity, and that while QUIC gives Early Data more visibility, the same cautions and mitigations still apply.\r\n\r\n(I'd also probably find a more technical title than \"Here There Be Dragons,\" but that's purely stylistic.)",
       "createdAt": "2021-02-12T22:10:17Z",
       "updatedAt": "2021-02-12T22:10:17Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 230,
+      "id": "MDU6SXNzdWU4MDgyMTM5NTI=",
+      "title": "Gotta intercept",
+      "url": "https://github.com/quicwg/ops-drafts/issues/230",
+      "state": "OPEN",
+      "author": "martinthomson",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "> Since QUIC's wire image [WIRE-IMAGE] is integrity protected and not modifiable on path, in-network operations are not possible without terminating the QUIC connection, for instance using a back-to-back proxy. Proxy operations are not in scope for this document. A proxy can either explicit identify itself as providing a proxy service, or may share the TLS credentials to authenticate as the server and (in some cases) client acting as a front-facing instance for the endpoint itself.\r\n\r\nThe point of [the first sentence here](https://quicwg.org/ops-drafts/draft-ietf-quic-manageability.html#section-1-4) is a little odd, because it seems to imply that ALL operations require access to the information that is integrity- or confidentiality-protected.  That's clearly not the case, I think, as it is merely pointing out that if you want to modify data, then you have to be an endpoint.\r\n\r\nI think that this might be better phrased as:\r\n\r\n> Since QUIC's wire image {{WIRE-IMAGE}} is integrity protected, in-network operations that depend on modification of data are not possible without the cooperation of an endpoint.  Network operation practices that alter data are only possible if performed as a QUIC endpoint, which might be possible with the introduction of a proxy.  Proxy operations are not in scope for this document.\r\n\r\nNote: This drops the last sentence of the original paragraph.  If proxying is out of scope, then it doesn't help to talk about it so much.  The point about cooperation should do.",
+      "createdAt": "2021-02-15T06:15:32Z",
+      "updatedAt": "2021-02-15T06:15:32Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 231,
+      "id": "MDU6SXNzdWU4MDgyMTc1NzQ=",
+      "title": "Dated information about version numbers",
+      "url": "https://github.com/quicwg/ops-drafts/issues/231",
+      "state": "OPEN",
+      "author": "martinthomson",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "> Many QUIC versions that start with 0xff implement IETF drafts. QUIC versions that start with 0x0000 are reserved for IETF consensus documents. \r\n\r\nThe first is not true really.  There are 16 million versions that start with 0xff and we only published 34 drafts and implemented far fewer than that.  The second is no longer true as we removed the reservation from the registry.  Maybe just strike these sentences.",
+      "createdAt": "2021-02-15T06:21:06Z",
+      "updatedAt": "2021-02-15T06:21:06Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 232,
+      "id": "MDU6SXNzdWU4MDgyMjEyMzM=",
+      "title": "Is manageability about version 1",
+      "url": "https://github.com/quicwg/ops-drafts/issues/232",
+      "state": "CLOSED",
+      "author": "martinthomson",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "There's a lot of text that acknowledges the differences between version 1 and any version, but it's not really consistent throughout.\r\n\r\nFor instance, [Section 2.2](https://quicwg.org/ops-drafts/draft-ietf-quic-manageability.html#section-2.2) describes coalescing, which is specific to version 1, without making this distinction.\r\n\r\nI think that it would be better if it were explicitly about version 1, with those places where properties invariant called out.",
+      "createdAt": "2021-02-15T06:26:37Z",
+      "updatedAt": "2021-02-16T00:14:01Z",
+      "closedAt": "2021-02-16T00:14:01Z",
+      "comments": [
+        {
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Section 2 already says \r\n\r\n```\r\nThis document describes version 1 of the QUIC protocol, whose wire image is fully defined in [QUIC-TRANSPORT] and [QUIC-TLS].\r\n```",
+          "createdAt": "2021-02-15T17:28:52Z",
+          "updatedAt": "2021-02-15T17:28:52Z"
+        },
+        {
+          "author": "martinthomson",
+          "authorAssociation": "MEMBER",
+          "body": "Indeed it does, but it isn't very good at sticking to that.  Probably worth just addressing at those points that the text goes off on a tangent.",
+          "createdAt": "2021-02-16T00:14:01Z",
+          "updatedAt": "2021-02-16T00:14:01Z"
+        }
+      ]
+    },
+    {
+      "number": 234,
+      "id": "MDU6SXNzdWU4MDg2NzE3MTI=",
+      "title": "Recommend to reduce ACK rate on constraint links",
+      "url": "https://github.com/quicwg/ops-drafts/issues/234",
+      "state": "OPEN",
+      "author": "mirjak",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [
+        "-applicability",
+        "has PR"
+      ],
+      "body": "This was brought up by @gorryfair in issue #182:\r\n\r\n\"I\u2019d also note that the volume of ACK traffic really can be a problem that QUIC needs to address, because QUIC over radio (of various types) can be significantly more expensive or lower performant than TCP, precisely because the control/ACK traffic is much more and there is no opportunity for network mitigation - hence it behoves QUIC implementors to use appropriate methods.\"\r\n\r\nI created this new, separate issue for this point and will close the old issue now.\r\n\r\nNote that there is already proposed text, copied into PR #233 ",
+      "createdAt": "2021-02-15T16:25:00Z",
+      "updatedAt": "2021-02-15T17:29:10Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 235,
+      "id": "MDU6SXNzdWU4MDg5MDM4MTQ=",
+      "title": "0-RTT is not limited by the initial congestion window",
+      "url": "https://github.com/quicwg/ops-drafts/issues/235",
+      "state": "OPEN",
+      "author": "martinthomson",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "> The amount of 0-RTT protected data is limited by the initial congestion window, typically around 10 packets [RFC6928].\r\n\r\nHowever there are cases where the congestion window can increase when 0-RTT continues to be sent.  Some involve packet loss and so probably won't result in a net increase in the window, though the total number of packets might still exceed the initial window size.  Others, like TLS HelloRetryRequest or large certificates, involve additional round trips in the handshake.\r\n\r\nThe total amount of 0-RTT is also limited by remembered flow control values, though this is indirect as this counts stream data only and packets might be further padded.",
+      "createdAt": "2021-02-16T00:50:15Z",
+      "updatedAt": "2021-02-16T00:50:15Z",
       "closedAt": null,
       "comments": []
     }
@@ -12988,24 +13099,26 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NTY5NDg5OTM1",
       "title": "remove NOT RECOMMENDED in ACK section",
       "url": "https://github.com/quicwg/ops-drafts/pull/207",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "mirjak",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
       "labels": [],
       "body": "fixes #182",
       "createdAt": "2021-02-08T13:52:53Z",
-      "updatedAt": "2021-02-08T17:07:49Z",
+      "updatedAt": "2021-02-15T16:25:16Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "3ded00f9cbd7a37a93074e9802b1bac5da52922d",
       "headRepository": "quicwg/ops-drafts",
       "headRefName": "mirjak-patch-10",
       "headRefOid": "21398b7d7520655b7f681b33d11a117f6a4d42e4",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "closedAt": "2021-02-15T16:25:16Z",
+      "mergedAt": "2021-02-15T16:25:16Z",
+      "mergedBy": "mirjak",
+      "mergeCommit": {
+        "oid": "1a5b60f913adad4ea0de8a107c12a4fb8da5e8b0"
+      },
       "comments": [],
       "reviews": [
         {
@@ -13682,10 +13795,12 @@
       "author": "britram",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ready-to-merge"
+      ],
       "body": "fix #176 ",
       "createdAt": "2021-02-12T12:30:15Z",
-      "updatedAt": "2021-02-12T18:34:57Z",
+      "updatedAt": "2021-02-15T16:31:13Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
@@ -13697,7 +13812,54 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwMTA4MTcz",
+          "commit": {
+            "abbreviatedOid": "51ed6e8"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "The title of the pull request was cause for a momentary flutter - in that I don't see the port as carrying anything other than a reference to a convention - but the text is very good.",
+          "createdAt": "2021-02-15T00:56:43Z",
+          "updatedAt": "2021-02-15T00:56:43Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjIxODk5",
+          "commit": {
+            "abbreviatedOid": "51ed6e8"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-15T16:28:45Z",
+          "updatedAt": "2021-02-15T16:28:45Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nuse the same port number for both services. However, as for all other IETF\r\n```",
+              "createdAt": "2021-02-15T16:28:45Z",
+              "updatedAt": "2021-02-15T16:28:45Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjIyNzMz",
+          "commit": {
+            "abbreviatedOid": "51ed6e8"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-15T16:29:49Z",
+          "updatedAt": "2021-02-15T16:29:49Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 221,
@@ -13711,7 +13873,7 @@
       "labels": [],
       "body": "Fixes #179.",
       "createdAt": "2021-02-12T12:36:30Z",
-      "updatedAt": "2021-02-12T18:31:21Z",
+      "updatedAt": "2021-02-15T16:42:18Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
@@ -13731,7 +13893,53 @@
           "updatedAt": "2021-02-12T12:45:50Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjI0MjIx",
+          "commit": {
+            "abbreviatedOid": "990efe0"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-15T16:31:48Z",
+          "updatedAt": "2021-02-15T16:31:48Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjI2MDY1",
+          "commit": {
+            "abbreviatedOid": "990efe0"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "CHANGES_REQUESTED",
+          "body": "",
+          "createdAt": "2021-02-15T16:34:23Z",
+          "updatedAt": "2021-02-15T16:36:24Z",
+          "comments": [
+            {
+              "originalPosition": 2,
+              "body": "```suggestion\r\nThe spin bit provides a version-specific method (see section 17.4 of {{?QUIC-TRANSPORT}}) to measure per-flow RTT from\r\n```",
+              "createdAt": "2021-02-15T16:34:24Z",
+              "updatedAt": "2021-02-15T16:42:18Z"
+            },
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nEndpoint participation in spin bit signaling is optional. That is, while\r\n```",
+              "createdAt": "2021-02-15T16:35:05Z",
+              "updatedAt": "2021-02-15T16:36:24Z"
+            },
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\n```",
+              "createdAt": "2021-02-15T16:35:23Z",
+              "updatedAt": "2021-02-15T16:36:24Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 222,
@@ -13742,10 +13950,12 @@
       "author": "mdukef5",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "meeting-agenda"
+      ],
       "body": "Fixes #183. Fixes #184.\r\n\r\nI don't have a strong opinion about the point of view in this PR, though I believe it accurately reflects the discussion in the issues so far.",
       "createdAt": "2021-02-12T17:10:33Z",
-      "updatedAt": "2021-02-12T21:41:28Z",
+      "updatedAt": "2021-02-15T16:57:53Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
@@ -13842,6 +14052,82 @@
               "updatedAt": "2021-02-12T21:41:28Z"
             }
           ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjMyNDIw",
+          "commit": {
+            "abbreviatedOid": "e5010d1"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "Some suggestions",
+          "createdAt": "2021-02-15T16:43:16Z",
+          "updatedAt": "2021-02-15T16:51:46Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "Understood, but yes, let's change it.",
+              "createdAt": "2021-02-15T16:43:16Z",
+              "updatedAt": "2021-02-15T16:51:46Z"
+            },
+            {
+              "originalPosition": 25,
+              "body": "```suggestion\r\nsurvive a port or address change. Second, applications which allow either peer to send after a\r\nperiod of quiescence will experience black-holing until the peer re-initializes the NAT binding.\r\nFor these reasons, devices that\r\n```",
+              "createdAt": "2021-02-15T16:47:52Z",
+              "updatedAt": "2021-02-15T16:51:46Z"
+            },
+            {
+              "originalPosition": 25,
+              "body": "Suggestion below.",
+              "createdAt": "2021-02-15T16:48:02Z",
+              "updatedAt": "2021-02-15T16:51:46Z"
+            },
+            {
+              "originalPosition": 20,
+              "body": "```suggestion\r\nobservable end-of-connection semantics, devices might be tempted to further reduce\r\n```",
+              "createdAt": "2021-02-15T16:48:53Z",
+              "updatedAt": "2021-02-15T16:51:46Z"
+            },
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\nAs QUIC has features to improve robustness to NAT rebinding, devices might be\r\ntempted to further reduce the UDP timeout to avoid unnecessary state. However,\r\nthis has two drawbacks.\r\n```\r\n\r\nI don't like 'tempted', but the current text read to me as though you're saying it's ok, which I do not want to convey.",
+              "createdAt": "2021-02-15T16:50:55Z",
+              "updatedAt": "2021-02-15T16:51:46Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjM2NTky",
+          "commit": {
+            "abbreviatedOid": "e5010d1"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-15T16:49:11Z",
+          "updatedAt": "2021-02-15T16:57:53Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "I thought we took this from some paper but can't real find it anymore. I found this one though which actually indicates that most timeout are 2 minutes: https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.739.5004&rep=rep1&type=pdf",
+              "createdAt": "2021-02-15T16:49:12Z",
+              "updatedAt": "2021-02-15T16:57:53Z"
+            },
+            {
+              "originalPosition": 20,
+              "body": "I'd recommend to rather start this paragraph with saying what we recommend and not saying what we no recommend :-)",
+              "createdAt": "2021-02-15T16:53:23Z",
+              "updatedAt": "2021-02-15T16:57:53Z"
+            },
+            {
+              "originalPosition": 27,
+              "body": "I know the originally text wasn't that much better, but I guess actually all devices should retain the RFC4787 limits for all UDP traffic because that's what we recommend in RFC4787. This text should only say that it even more important and also more reasonable to retain these limits for QUIC because QUIC is connection-oriented and therefore a device can at least because sure that there is a valid communication going on if it sees an successful handshake. \r\n\r\nI actually don't think, it a good advise to tell these boxes to be QUIC aware. It's only if you really don't want to adjust your timers for other UDP traffic than you should still consider doing so for QUIC specifically which however means you need additional logic to detect QUIC traffic, which however in itself is not super easy (see other section).",
+              "createdAt": "2021-02-15T16:57:39Z",
+              "updatedAt": "2021-02-15T16:57:53Z"
+            }
+          ]
         }
       ]
     },
@@ -13854,10 +14140,12 @@
       "author": "britram",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ready-to-merge"
+      ],
       "body": " Fixes #185.",
       "createdAt": "2021-02-12T18:30:38Z",
-      "updatedAt": "2021-02-12T18:33:20Z",
+      "updatedAt": "2021-02-16T00:20:56Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
@@ -13869,7 +14157,98 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjQ0NDY4",
+          "commit": {
+            "abbreviatedOid": "60a250c"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-15T17:00:44Z",
+          "updatedAt": "2021-02-15T17:00:44Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\r\nis not sustainable. First, it only provides one bit of information and is\r\n```",
+              "createdAt": "2021-02-15T17:00:44Z",
+              "updatedAt": "2021-02-15T17:00:44Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjQ0NTYz",
+          "commit": {
+            "abbreviatedOid": "60a250c"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-15T17:00:53Z",
+          "updatedAt": "2021-02-15T17:00:53Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjU0Mzg5",
+          "commit": {
+            "abbreviatedOid": "60a250c"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "LG, some small suggestions.",
+          "createdAt": "2021-02-15T17:16:27Z",
+          "updatedAt": "2021-02-15T17:21:21Z",
+          "comments": [
+            {
+              "originalPosition": 67,
+              "body": "```suggestion\r\nis not reliable. First, it only provides one bit of information and is\r\n```",
+              "createdAt": "2021-02-15T17:16:28Z",
+              "updatedAt": "2021-02-15T17:21:21Z"
+            },
+            {
+              "originalPosition": 114,
+              "body": "```suggestion\r\nconnection ID as a flow key field for stateful treatment of flows may therefore\r\n```",
+              "createdAt": "2021-02-15T17:17:44Z",
+              "updatedAt": "2021-02-15T17:21:21Z"
+            },
+            {
+              "originalPosition": 116,
+              "body": "```suggestion\r\nof state in the middle of a connection. Use of connection IDs is specifically\r\n```",
+              "createdAt": "2021-02-15T17:19:00Z",
+              "updatedAt": "2021-02-15T17:21:21Z"
+            },
+            {
+              "originalPosition": 113,
+              "body": "```suggestion\r\nafter the handshake, and this renegotiation is not visible to the path. Using the\r\n```",
+              "createdAt": "2021-02-15T17:19:48Z",
+              "updatedAt": "2021-02-15T17:21:21Z"
+            },
+            {
+              "originalPosition": 114,
+              "body": "This sentence isn't quite as cautionary as I think it should be, but I don't have any good suggestion.",
+              "createdAt": "2021-02-15T17:20:47Z",
+              "updatedAt": "2021-02-15T17:21:21Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwODEyODI2",
+          "commit": {
+            "abbreviatedOid": "60a250c"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "MEMBER",
+          "state": "APPROVED",
+          "body": "...with Ian's suggestions.",
+          "createdAt": "2021-02-16T00:20:56Z",
+          "updatedAt": "2021-02-16T00:20:56Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 224,
@@ -13880,10 +14259,12 @@
       "author": "britram",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ready-to-merge"
+      ],
       "body": "fix #189. fix #190. fix #191.",
       "createdAt": "2021-02-12T18:42:04Z",
-      "updatedAt": "2021-02-12T18:42:04Z",
+      "updatedAt": "2021-02-15T17:13:27Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
@@ -13894,8 +14275,43 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "I set the ready to merge label but there are merge conflict, so please don't merge before accepting my suggestions...",
+          "createdAt": "2021-02-15T17:13:27Z",
+          "updatedAt": "2021-02-15T17:13:27Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjQ1OTk5",
+          "commit": {
+            "abbreviatedOid": "1ce4ec0"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-15T17:02:58Z",
+          "updatedAt": "2021-02-15T17:06:32Z",
+          "comments": [
+            {
+              "originalPosition": 40,
+              "body": "```suggestion\r\nare very likely to fail, and are emphatically NOT RECOMMENDED.\r\n```\r\n\r\nreverting as this was already address by PR #207 ",
+              "createdAt": "2021-02-15T17:02:58Z",
+              "updatedAt": "2021-02-15T17:06:32Z"
+            },
+            {
+              "originalPosition": 21,
+              "body": "```suggestion\r\nthis method of recognizing QUIC traffic is NOT RECOMMENDED. First, it only\r\n```\r\n\r\nProposed another fix in PR #223. So reverting to avoid merge conflict....",
+              "createdAt": "2021-02-15T17:06:01Z",
+              "updatedAt": "2021-02-15T17:06:32Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 225,
@@ -13906,10 +14322,12 @@
       "author": "britram",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
-      "labels": [],
+      "labels": [
+        "ready-to-merge"
+      ],
       "body": "Fixes #205 (thanks @gorryfair!); fixes #186 and fixes #187 (thanks @seanturner!). Fixes #216 as well (thanks @martinthomson!)",
       "createdAt": "2021-02-12T20:29:01Z",
-      "updatedAt": "2021-02-12T20:56:42Z",
+      "updatedAt": "2021-02-15T17:10:47Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
@@ -14039,6 +14457,19 @@
               "updatedAt": "2021-02-12T20:56:42Z"
             }
           ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjUwNjAx",
+          "commit": {
+            "abbreviatedOid": "bf18afe"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-15T17:10:10Z",
+          "updatedAt": "2021-02-15T17:10:10Z",
+          "comments": []
         }
       ]
     },
@@ -14054,7 +14485,7 @@
       "labels": [],
       "body": "...that must be postprocessed to become metrics. Fixes #180.",
       "createdAt": "2021-02-12T20:43:30Z",
-      "updatedAt": "2021-02-12T20:53:32Z",
+      "updatedAt": "2021-02-15T17:14:44Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
@@ -14065,8 +14496,303 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
+      "comments": [
+        {
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Waiting for more reviews, e.g. from @gorryfair, before we can merge.",
+          "createdAt": "2021-02-15T17:14:44Z",
+          "updatedAt": "2021-02-15T17:14:44Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjUzMDM0",
+          "commit": {
+            "abbreviatedOid": "cc75bef"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-15T17:14:13Z",
+          "updatedAt": "2021-02-15T17:14:13Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 228,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTczMTk5MzQw",
+      "title": "Ordered and reliable will be assumed",
+      "url": "https://github.com/quicwg/ops-drafts/pull/228",
+      "state": "OPEN",
+      "author": "martinthomson",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Beware those who want to do something else.\r\n\r\nCloses #215.",
+      "createdAt": "2021-02-15T01:42:55Z",
+      "updatedAt": "2021-02-16T00:25:05Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
+      "headRepository": "martinthomson/quic-ops",
+      "headRefName": "ordered-reliable",
+      "headRefOid": "af559178a5fd4b066a1d4c9bea53f645c35334d3",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Isn't this already covered by the next section on \"Flow Control Deadlocks\"? If not, what's missing? And can we just add a sentence or two there?",
+          "createdAt": "2021-02-15T17:20:04Z",
+          "updatedAt": "2021-02-15T17:20:04Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwMTI3NDk2",
+          "commit": {
+            "abbreviatedOid": "5f8e2a5"
+          },
+          "author": "janaiyengar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-15T02:35:43Z",
+          "updatedAt": "2021-02-15T02:38:54Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "```suggestion\r\nreliably delivered in order.\r\n```",
+              "createdAt": "2021-02-15T02:35:43Z",
+              "updatedAt": "2021-02-16T00:21:39Z"
+            },
+            {
+              "originalPosition": 13,
+              "body": "```suggestion\r\navailable.  In particular, a receiver might withhold flow control credit until\r\n```",
+              "createdAt": "2021-02-15T02:36:07Z",
+              "updatedAt": "2021-02-16T00:21:39Z"
+            },
+            {
+              "originalPosition": 16,
+              "body": "This isn't clear -- maybe rephrase? \"until that data\" is unclear -- this doesn't mean data from the start of the stream, does it?",
+              "createdAt": "2021-02-15T02:37:48Z",
+              "updatedAt": "2021-02-16T00:21:39Z"
+            },
+            {
+              "originalPosition": 20,
+              "body": "It's worse -- the sender can easily get deadlocked, especially if it assumes partial reliability when the receiver does not.",
+              "createdAt": "2021-02-15T02:38:49Z",
+              "updatedAt": "2021-02-16T00:21:39Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwMTQwMTgx",
+          "commit": {
+            "abbreviatedOid": "76ae00c"
+          },
+          "author": "janaiyengar",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-15T03:33:00Z",
+          "updatedAt": "2021-02-15T03:33:00Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjM5MTE2",
+          "commit": {
+            "abbreviatedOid": "76ae00c"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-15T16:52:57Z",
+          "updatedAt": "2021-02-15T16:54:46Z",
+          "comments": [
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nimplementation to provide options that use streams for partial reliability\r\n```",
+              "createdAt": "2021-02-15T16:52:57Z",
+              "updatedAt": "2021-02-16T00:21:39Z"
+            },
+            {
+              "originalPosition": 14,
+              "body": "This last sentence seems somewhat duplicative of text in transport, and given it's fairly proscriptive, I'd prefer to remove it,",
+              "createdAt": "2021-02-15T16:54:43Z",
+              "updatedAt": "2021-02-16T00:21:39Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwODEzNTQ4",
+          "commit": {
+            "abbreviatedOid": "af55917"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "@mirjak, the next section talks about deadlocking more generally, on the assumption that data is delivered in order; the deadlock mentioned here is an extra special one.  (I thought that the mention of deadlocks was a nice segue, as it happens.)",
+          "createdAt": "2021-02-16T00:23:53Z",
+          "updatedAt": "2021-02-16T00:25:05Z",
+          "comments": [
+            {
+              "originalPosition": 14,
+              "body": "You mean the \"in particular\"?  Would adding a reference to Section 2.2 of Transport help?  The text in transport only says that implementations MUST be able to deliver in order; it doesn't really say anything about the consequences of that, which is what this is emphasizing.",
+              "createdAt": "2021-02-16T00:23:53Z",
+              "updatedAt": "2021-02-16T00:25:05Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 229,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTczMjg1MjMz",
+      "title": "Less encrypted; more correct about HTTP",
+      "url": "https://github.com/quicwg/ops-drafts/pull/229",
+      "state": "OPEN",
+      "author": "martinthomson",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [
+        "editorial",
+        "ready-to-merge"
+      ],
+      "body": "This didn't need to say encrypted twice.  And it didn't really require changes to HTTP, just an adaptation.  (I'm less happy about that part; it could probably use a tweak or two.)",
+      "createdAt": "2021-02-15T06:04:06Z",
+      "updatedAt": "2021-02-15T17:22:36Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
+      "headRepository": "martinthomson/quic-ops",
+      "headRefName": "encrypted-encrypted-encrypted",
+      "headRefOid": "5c069424e6d2049951cc8fb86f2dd86a67d91f7d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjQxMDc3",
+          "commit": {
+            "abbreviatedOid": "5c06942"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-15T16:55:46Z",
+          "updatedAt": "2021-02-15T16:55:46Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjU3MjU2",
+          "commit": {
+            "abbreviatedOid": "5c06942"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-02-15T17:21:05Z",
+          "updatedAt": "2021-02-15T17:21:05Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 233,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTczNjcwMTIx",
+      "title": "Recommendation on ACKing",
+      "url": "https://github.com/quicwg/ops-drafts/pull/233",
+      "state": "OPEN",
+      "author": "mirjak",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "This is text from Gorry. I created a new section in the applicability document but not fully sure yet where this belongs.",
+      "createdAt": "2021-02-15T16:21:50Z",
+      "updatedAt": "2021-02-16T00:19:28Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
+      "headRepository": "quicwg/ops-drafts",
+      "headRefName": "mirjak-patch-13",
+      "headRefOid": "422eb5cfc70cb212f1317dccc66c19fa3d38a90b",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwNjI0ODAy",
+          "commit": {
+            "abbreviatedOid": "0f24017"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "I'm not sure this belongs in applicability.  This seems like a transport feature, and I would not expect most applications to have much control over it?",
+          "createdAt": "2021-02-15T16:32:38Z",
+          "updatedAt": "2021-02-15T16:38:37Z",
+          "comments": [
+            {
+              "originalPosition": 4,
+              "body": "```suggestion\r\n# ACK-only packets on constrained links\r\n```",
+              "createdAt": "2021-02-15T16:32:38Z",
+              "updatedAt": "2021-02-15T17:22:59Z"
+            },
+            {
+              "originalPosition": 7,
+              "body": "```suggestion\r\nthe transmission of packets only containing ACK frames can reduce the efficient use of network\r\n```",
+              "createdAt": "2021-02-15T16:33:08Z",
+              "updatedAt": "2021-02-15T17:22:59Z"
+            },
+            {
+              "originalPosition": 8,
+              "body": "```suggestion\r\ncapacity. This effect occurs\r\n```\r\nThis sentence is still a bit awkward, but I'm not sure what else to suggest.",
+              "createdAt": "2021-02-15T16:34:53Z",
+              "updatedAt": "2021-02-15T17:22:59Z"
+            },
+            {
+              "originalPosition": 9,
+              "body": "I don't believe return and forward are used elsewhere, but this sentence also seems a bit redundant to the previous sentence which discusses asymmetric paths.",
+              "createdAt": "2021-02-15T16:36:56Z",
+              "updatedAt": "2021-02-15T17:22:59Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NTkwODEyNDMx",
+          "commit": {
+            "abbreviatedOid": "422eb5c"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-02-16T00:19:28Z",
+          "updatedAt": "2021-02-16T00:19:28Z",
+          "comments": [
+            {
+              "originalPosition": 9,
+              "body": "Maybe instead:\r\n\r\n> The cost of sending acknowledgments - in processing cost or link utilization - could be a significant proportion of available resources if these resources are constrained.  Reducing the rate at which acknowledgments are generated can preserve these resources and improve overall performance.",
+              "createdAt": "2021-02-16T00:19:28Z",
+              "updatedAt": "2021-02-16T00:19:28Z"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
