@@ -5,8 +5,8 @@
 Network Working Group                                      M. Kuehlewind
 Internet-Draft                                                  Ericsson
 Intended status: Informational                               B. Trammell
-Expires: 20 August 2021                                           Google
-                                                        16 February 2021
+Expires: 21 August 2021                                           Google
+                                                        17 February 2021
 
 
               Manageability of the QUIC Transport Protocol
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 20 August 2021.
+   This Internet-Draft will expire on 21 August 2021.
 
 Copyright Notice
 
@@ -602,8 +602,8 @@ Table of Contents
 
    Negotiated version cannot be identified for flows for which a
    handshake is not observed, such as in the case of connection
-   migration; however, these flows might eventually be associated with
-   flows for which a version has been identified; see Section 3.4.
+   migration; however, it might be possible to associate a flow with a
+   flow for which a version has been identified; see Section 3.4.
 
    This document focuses on QUIC Version 1, and this section applies
    only to packets belonging to Version 1 QUIC flows; for purposes of
