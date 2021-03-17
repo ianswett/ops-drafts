@@ -1187,10 +1187,13 @@ Table of Contents
 
    *  David Schinazi
 
+   *  Gorry Fairhurst
+
 8.  Acknowledgments
 
    Special thanks to Martin Thomson and Martin Duke for the detailed
-   reviews and feedback.
+   reviews and feedback.  Thanks also to Sean Turner and Mike Bishop for
+   their last call reviews.
 
    This work is partially supported by the European Commission under
    Horizon 2020 grant agreement no. 688421 Measurement and Architecture
