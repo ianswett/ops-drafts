@@ -944,7 +944,7 @@ Table of Contents
    switches in the server infrastructure route using the address-port
    4-tuple.  If infrastructure routes on addresses only, NAT rebinding
    or address migration will cause packets to be delivered to the wrong
-   server.  [QUIC_LB] described a way to addresses this problem by
+   server.  [QUIC_LB] describes a way to addresses this problem by
    coordinating the selection and use of connection IDs between load-
    balancers and servers.
 
