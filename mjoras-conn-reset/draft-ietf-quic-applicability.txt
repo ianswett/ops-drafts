@@ -5,8 +5,8 @@
 Network Working Group                                      M. Kuehlewind
 Internet-Draft                                                  Ericsson
 Intended status: Informational                               B. Trammell
-Expires: 10 September 2021                                        Google
-                                                            9 March 2021
+Expires: 18 September 2021                                        Google
+                                                           17 March 2021
 
 
               Applicability of the QUIC Transport Protocol
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 10 September 2021.
+   This Internet-Draft will expire on 18 September 2021.
 
 Copyright Notice
 
@@ -321,7 +321,7 @@ Table of Contents
    stream.  If a stream that is critical for an application is closed,
    the application can generate error messages on the application layer
    to inform the other end and/or the higher layer, which can eventually
-   result in closure of the QUIC connection.
+   terminate the QUIC connection.
 
    Mapping of application data to streams is application-specific and
    described for HTTP/3 in [QUIC-HTTP].  There are a few general
