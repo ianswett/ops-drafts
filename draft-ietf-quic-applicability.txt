@@ -5,8 +5,8 @@
 Network Working Group                                      M. Kuehlewind
 Internet-Draft                                                  Ericsson
 Intended status: Informational                               B. Trammell
-Expires: 18 September 2021                                        Google
-                                                           17 March 2021
+Expires: 25 September 2021                                        Google
+                                                           24 March 2021
 
 
               Applicability of the QUIC Transport Protocol
@@ -35,7 +35,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on 18 September 2021.
+   This Internet-Draft will expire on 25 September 2021.
 
 Copyright Notice
 
@@ -306,7 +306,7 @@ Table of Contents
    initiated either by client or server.  Only the initiator of a
    unidirectional stream can send data on it.
 
-   Streams and connections can each carry a maximum of 2^(62)-1 bytes in
+   Streams and connections can each carry a maximum of 2^62-1 bytes in
    each direction, due to encoding limitations on stream offsets and
    connection flow control limits.  In the presently unlikely event that
    this limit is reached by an application, a new connection would need
@@ -688,12 +688,11 @@ Table of Contents
 
    Server deployments with load balancers and other routing
    infrastructure need to ensure that this infrastructure consistently
-   routes packets to the correct server instance.  This might require
-   coordination between servers and infrastructure.  One method of
-   achieving this involves encoding routing information into the
-   connection ID.  This ensures that there is no need to for servers and
-   infrastructure to coordinate routing information for each connection.
-   See [QUIC-LB] for more information.
+   routes packets to the server instance that has the connection state,
+   even if addresses, ports, and/or connection IDs change.  This might
+   require coordination between servers and infrastructure.  One method
+   of achieving this involves encoding routing information into the
+   connection ID.  For an example of this technique, see [QUIC-LB].
 
 10.2.  Mitigating Timing Linkability with Connection ID Migration
 

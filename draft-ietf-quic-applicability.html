@@ -13,12 +13,12 @@ focusing on caveats impacting application protocol development and deployment
 over QUIC. Its intended audience is designers of application protocol mappings
 to QUIC, and implementors of these application protocols. 
     " name="description">
-<meta content="xml2rfc 3.5.0" name="generator">
+<meta content="xml2rfc 3.6.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-quic-applicability" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.5.0
-    Python 3.8.7
+  xml2rfc 3.6.0
+    Python 3.8.8
     appdirs 1.4.4
     ConfigArgParse 1.2.3
     google-i18n-address 2.4.0
@@ -845,7 +845,7 @@ address div.right {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Kuehlewind &amp; Trammell</td>
-<td class="center">Expires 18 September 2021</td>
+<td class="center">Expires 25 September 2021</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -858,12 +858,12 @@ address div.right {
 <dd class="internet-draft">draft-ietf-quic-applicability</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-03-17" class="published">17 March 2021</time>
+<time datetime="2021-03-24" class="published">24 March 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-09-18">18 September 2021</time></dd>
+<dd class="expires"><time datetime="2021-09-25">25 September 2021</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -904,7 +904,7 @@ to QUIC, and implementors of these application protocols.<a href="#section-abstr
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 September 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 September 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -932,107 +932,107 @@ to QUIC, and implementors of these application protocols.<a href="#section-abstr
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
+<nav class="toc"><ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-the-necessity-of-fallback" class="xref">The Necessity of Fallback</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1" class="keepWithNext"><a href="#section-2" class="xref">2</a>.  <a href="#name-the-necessity-of-fallback" class="xref">The Necessity of Fallback</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-zero-rtt" class="xref">Zero RTT</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-replay-attacks" class="xref">Replay Attacks</a><a href="#section-toc.1-1.3.2.1.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-zero-rtt" class="xref">Zero RTT</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1" class="keepWithNext"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-replay-attacks" class="xref">Replay Attacks</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-session-resumption-versus-k" class="xref">Session resumption versus Keep-alive</a><a href="#section-toc.1-1.3.2.2.1" class="pilcrow">¶</a></p>
-</li>
-            </ul>
-</li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-use-of-streams" class="xref">Use of Streams</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-stream-versus-flow-multiple" class="xref">Stream versus Flow Multiplexing</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-prioritization" class="xref">Prioritization</a><a href="#section-toc.1-1.4.2.2.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="xref">4.3</a>.  <a href="#name-ordered-and-reliable-delive" class="xref">Ordered and Reliable Delivery</a><a href="#section-toc.1-1.4.2.3.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-flow-control-deadlocks" class="xref">Flow Control Deadlocks</a><a href="#section-toc.1-1.4.2.4.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-session-resumption-versus-k" class="xref">Session resumption versus Keep-alive</a></p>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-packetization-and-latency" class="xref">Packetization and Latency</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-use-of-streams" class="xref">Use of Streams</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-stream-versus-flow-multiple" class="xref">Stream versus Flow Multiplexing</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-ack-only-packets-on-constra" class="xref">ACK-only packets on constrained links</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-prioritization" class="xref">Prioritization</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-port-selection-and-applicat" class="xref">Port Selection and Application Endpoint Discovery</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="xref">4.3</a>.  <a href="#name-ordered-and-reliable-delive" class="xref">Ordered and Reliable Delivery</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-connection-migration" class="xref">Connection Migration</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-connection-closure" class="xref">Connection Closure</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-information-exposure-and-th" class="xref">Information Exposure and the Connection ID</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="xref">10.1</a>.  <a href="#name-server-generated-connection" class="xref">Server-Generated Connection ID</a><a href="#section-toc.1-1.10.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.10.2.2">
-                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="xref">10.2</a>.  <a href="#name-mitigating-timing-linkabili" class="xref">Mitigating Timing Linkability with Connection ID Migration</a><a href="#section-toc.1-1.10.2.2.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.10.2.3">
-                <p id="section-toc.1-1.10.2.3.1"><a href="#section-10.3" class="xref">10.3</a>.  <a href="#name-using-server-retry-for-redi" class="xref">Using Server Retry for Redirection</a><a href="#section-toc.1-1.10.2.3.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-flow-control-deadlocks" class="xref">Flow Control Deadlocks</a></p>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-11" class="xref">11</a>. <a href="#name-quality-of-service-qos-and-" class="xref">Quality of Service (QoS) and DSCP</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-packetization-and-latency" class="xref">Packetization and Latency</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.12">
-            <p id="section-toc.1-1.12.1"><a href="#section-12" class="xref">12</a>. <a href="#name-use-of-versions-and-cryptog" class="xref">Use of Versions and Cryptographic Handshake</a><a href="#section-toc.1-1.12.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-ack-only-packets-on-constra" class="xref">ACK-only packets on constrained links</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.13">
-            <p id="section-toc.1-1.13.1"><a href="#section-13" class="xref">13</a>. <a href="#name-enabling-new-versions" class="xref">Enabling New Versions</a><a href="#section-toc.1-1.13.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-port-selection-and-applicat" class="xref">Port Selection and Application Endpoint Discovery</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.14">
-            <p id="section-toc.1-1.14.1"><a href="#section-14" class="xref">14</a>. <a href="#name-unreliable-datagram-service" class="xref">Unreliable Datagram Service over QUIC</a><a href="#section-toc.1-1.14.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-connection-migration" class="xref">Connection Migration</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.15">
-            <p id="section-toc.1-1.15.1"><a href="#section-15" class="xref">15</a>. <a href="#name-iana-considerations" class="xref">IANA Considerations</a><a href="#section-toc.1-1.15.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-connection-closure" class="xref">Connection Closure</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.16">
-            <p id="section-toc.1-1.16.1"><a href="#section-16" class="xref">16</a>. <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.16.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#section-10" class="xref">10</a>. <a href="#name-information-exposure-and-th" class="xref">Information Exposure and the Connection ID</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.10.2.1">
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-10.1" class="xref">10.1</a>.  <a href="#name-server-generated-connection" class="xref">Server-Generated Connection ID</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.17">
-            <p id="section-toc.1-1.17.1"><a href="#section-17" class="xref">17</a>. <a href="#name-contributors" class="xref">Contributors</a><a href="#section-toc.1-1.17.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#section-10.2" class="xref">10.2</a>.  <a href="#name-mitigating-timing-linkabili" class="xref">Mitigating Timing Linkability with Connection ID Migration</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.18">
-            <p id="section-toc.1-1.18.1"><a href="#section-18" class="xref">18</a>. <a href="#name-acknowledgments" class="xref">Acknowledgments</a><a href="#section-toc.1-1.18.1" class="pilcrow">¶</a></p>
-</li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.19">
-            <p id="section-toc.1-1.19.1"><a href="#section-19" class="xref">19</a>. <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.19.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.19.2.1">
-                <p id="section-toc.1-1.19.2.1.1"><a href="#section-19.1" class="xref">19.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a><a href="#section-toc.1-1.19.2.1.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.19.2.2">
-                <p id="section-toc.1-1.19.2.2.1"><a href="#section-19.2" class="xref">19.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a><a href="#section-toc.1-1.19.2.2.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.10.2.3">
+                <p id="section-toc.1-1.10.2.3.1"><a href="#section-10.3" class="xref">10.3</a>.  <a href="#name-using-server-retry-for-redi" class="xref">Using Server Retry for Redirection</a></p>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.20">
-            <p id="section-toc.1-1.20.1"><a href="#section-appendix.a" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.20.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#section-11" class="xref">11</a>. <a href="#name-quality-of-service-qos-and-" class="xref">Quality of Service (QoS) and DSCP</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.12">
+            <p id="section-toc.1-1.12.1"><a href="#section-12" class="xref">12</a>. <a href="#name-use-of-versions-and-cryptog" class="xref">Use of Versions and Cryptographic Handshake</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.13">
+            <p id="section-toc.1-1.13.1"><a href="#section-13" class="xref">13</a>. <a href="#name-enabling-new-versions" class="xref">Enabling New Versions</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.14">
+            <p id="section-toc.1-1.14.1"><a href="#section-14" class="xref">14</a>. <a href="#name-unreliable-datagram-service" class="xref">Unreliable Datagram Service over QUIC</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.15">
+            <p id="section-toc.1-1.15.1"><a href="#section-15" class="xref">15</a>. <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.16">
+            <p id="section-toc.1-1.16.1"><a href="#section-16" class="xref">16</a>. <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.17">
+            <p id="section-toc.1-1.17.1"><a href="#section-17" class="xref">17</a>. <a href="#name-contributors" class="xref">Contributors</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.18">
+            <p id="section-toc.1-1.18.1"><a href="#section-18" class="xref">18</a>. <a href="#name-acknowledgments" class="xref">Acknowledgments</a></p>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.19">
+            <p id="section-toc.1-1.19.1"><a href="#section-19" class="xref">19</a>. <a href="#name-references" class="xref">References</a></p>
+<ul class="ulEmpty compact toc">
+<li class="ulEmpty compact toc" id="section-toc.1-1.19.2.1">
+                <p id="section-toc.1-1.19.2.1.1"><a href="#section-19.1" class="xref">19.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+</li>
+              <li class="ulEmpty compact toc" id="section-toc.1-1.19.2.2">
+                <p id="section-toc.1-1.19.2.2.1"><a href="#section-19.2" class="xref">19.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
+</li>
+            </ul>
+</li>
+          <li class="ulEmpty compact toc" id="section-toc.1-1.20">
+            <p id="section-toc.1-1.20.1"><a href="#section-appendix.a" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -1586,12 +1586,12 @@ balancers may need to change the connection ID during the handshake, encoding
 the identity of the server or information about its load balancing pool, in
 order to support stateless load balancing.<a href="#section-10.1-1" class="pilcrow">¶</a></p>
 <p id="section-10.1-2">Server deployments with load balancers and other routing infrastructure need to
-ensure that this infrastructure consistently routes packets to the correct
-server instance. This might require coordination between servers and
+ensure that this infrastructure consistently routes packets to the server
+instance that has the connection state, even if addresses, ports, and/or
+connection IDs change. This might require coordination between servers and
 infrastructure. One method of achieving this involves encoding routing
-information into the connection ID. This ensures that there is no need to for
-servers and infrastructure to coordinate routing information for each
-connection. See <span>[<a href="#QUIC-LB" class="xref">QUIC-LB</a>]</span> for more information.<a href="#section-10.1-2" class="pilcrow">¶</a></p>
+information into the connection ID. For an example of this technique, see
+<span>[<a href="#QUIC-LB" class="xref">QUIC-LB</a>]</span>.<a href="#section-10.1-2" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="mitigating-timing-linkability-with-connection-id-migration">
@@ -1809,7 +1809,7 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dl class="references">
 <dt id="QUIC">[QUIC]</dt>
         <dd>
-<span class="refAuthor">Iyengar, J.</span><span class="refAuthor"> and M. Thomson</span>, <span class="refTitle">"QUIC: A UDP-Based Multiplexed and Secure Transport"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-transport-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-34.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Iyengar, J.</span> and <span class="refAuthor">M. Thomson</span>, <span class="refTitle">"QUIC: A UDP-Based Multiplexed and Secure Transport"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-transport-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-34.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="QUIC-INVARIANTS">[QUIC-INVARIANTS]</dt>
         <dd>
@@ -1817,11 +1817,11 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dd class="break"></dd>
 <dt id="QUIC-TLS">[QUIC-TLS]</dt>
         <dd>
-<span class="refAuthor">Thomson, M.</span><span class="refAuthor"> and S. Turner</span>, <span class="refTitle">"Using TLS to Secure QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-tls-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls-34.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Thomson, M.</span> and <span class="refAuthor">S. Turner</span>, <span class="refTitle">"Using TLS to Secure QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-tls-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls-34.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6335">[RFC6335]</dt>
         <dd>
-<span class="refAuthor">Cotton, M.</span><span class="refAuthor">, Eggert, L.</span><span class="refAuthor">, Touch, J.</span><span class="refAuthor">, Westerlund, M.</span><span class="refAuthor">, and S. Cheshire</span>, <span class="refTitle">"Internet Assigned Numbers Authority (IANA) Procedures for the Management of the Service Name and Transport Protocol Port Number Registry"</span>, <span class="seriesInfo">BCP 165</span>, <span class="seriesInfo">RFC 6335</span>, <span class="seriesInfo">DOI 10.17487/RFC6335</span>, <time datetime="2011-08" class="refDate">August 2011</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc6335">https://datatracker.ietf.org/doc/html/rfc6335</a>&gt;</span>. </dd>
+<span class="refAuthor">Cotton, M.</span>, <span class="refAuthor">Eggert, L.</span>, <span class="refAuthor">Touch, J.</span>, <span class="refAuthor">Westerlund, M.</span>, and <span class="refAuthor">S. Cheshire</span>, <span class="refTitle">"Internet Assigned Numbers Authority (IANA) Procedures for the Management of the Service Name and Transport Protocol Port Number Registry"</span>, <span class="seriesInfo">BCP 165</span>, <span class="seriesInfo">RFC 6335</span>, <span class="seriesInfo">DOI 10.17487/RFC6335</span>, <time datetime="2011-08" class="refDate">August 2011</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc6335">https://datatracker.ietf.org/doc/html/rfc6335</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="TLS13">[TLS13]</dt>
       <dd>
@@ -1836,23 +1836,23 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dl class="references">
 <dt id="Edeline16">[Edeline16]</dt>
         <dd>
-<span class="refAuthor">Edeline, K.</span><span class="refAuthor">, Kuehlewind, M.</span><span class="refAuthor">, Trammell, B.</span><span class="refAuthor">, Aben, E.</span><span class="refAuthor">, and B. Donnet</span>, <span class="refTitle">"Using UDP for Internet Transport Evolution (arXiv preprint 1612.07816)"</span>, <time datetime="2016-12-22" class="refDate">22 December 2016</time>, <span>&lt;<a href="https://arxiv.org/abs/1612.07816">https://arxiv.org/abs/1612.07816</a>&gt;</span>. </dd>
+<span class="refAuthor">Edeline, K.</span>, <span class="refAuthor">Kuehlewind, M.</span>, <span class="refAuthor">Trammell, B.</span>, <span class="refAuthor">Aben, E.</span>, and <span class="refAuthor">B. Donnet</span>, <span class="refTitle">"Using UDP for Internet Transport Evolution (arXiv preprint 1612.07816)"</span>, <time datetime="2016-12-22" class="refDate">22 December 2016</time>, <span>&lt;<a href="https://arxiv.org/abs/1612.07816">https://arxiv.org/abs/1612.07816</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="Hatonen10">[Hatonen10]</dt>
         <dd>
-<span class="refAuthor">Hatonen, S.</span><span class="refAuthor">, Nyrhinen, A.</span><span class="refAuthor">, Eggert, L.</span><span class="refAuthor">, Strowes, S.</span><span class="refAuthor">, Sarolahti, P.</span><span class="refAuthor">, and M. Kojo</span>, <span class="refTitle">"An experimental study of home gateway characteristics (Proc. ACM IMC 2010)"</span>, <time datetime="2010-10" class="refDate">October 2010</time>. </dd>
+<span class="refAuthor">Hatonen, S.</span>, <span class="refAuthor">Nyrhinen, A.</span>, <span class="refAuthor">Eggert, L.</span>, <span class="refAuthor">Strowes, S.</span>, <span class="refAuthor">Sarolahti, P.</span>, and <span class="refAuthor">M. Kojo</span>, <span class="refTitle">"An experimental study of home gateway characteristics (Proc. ACM IMC 2010)"</span>, <time datetime="2010-10" class="refDate">October 2010</time>. </dd>
 <dd class="break"></dd>
 <dt id="HTTP-REPLAY">[HTTP-REPLAY]</dt>
         <dd>
-<span class="refAuthor">Thomson, M.</span><span class="refAuthor">, Nottingham, M.</span><span class="refAuthor">, and W. Tarreau</span>, <span class="refTitle">"Using Early Data in HTTP"</span>, <span class="seriesInfo">RFC 8470</span>, <span class="seriesInfo">DOI 10.17487/RFC8470</span>, <time datetime="2018-09" class="refDate">September 2018</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8470">https://datatracker.ietf.org/doc/html/rfc8470</a>&gt;</span>. </dd>
+<span class="refAuthor">Thomson, M.</span>, <span class="refAuthor">Nottingham, M.</span>, and <span class="refAuthor">W. Tarreau</span>, <span class="refTitle">"Using Early Data in HTTP"</span>, <span class="seriesInfo">RFC 8470</span>, <span class="seriesInfo">DOI 10.17487/RFC8470</span>, <time datetime="2018-09" class="refDate">September 2018</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8470">https://datatracker.ietf.org/doc/html/rfc8470</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.draft-ietf-quic-datagram">[I-D.draft-ietf-quic-datagram]</dt>
         <dd>
-<span class="refAuthor">Pauly, T.</span><span class="refAuthor">, Kinnear, E.</span><span class="refAuthor">, and D. Schinazi</span>, <span class="refTitle">"An Unreliable Datagram Extension to QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-datagram-02</span>, <time datetime="2021-02-16" class="refDate">16 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-datagram-02.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-datagram-02.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Pauly, T.</span>, <span class="refAuthor">Kinnear, E.</span>, and <span class="refAuthor">D. Schinazi</span>, <span class="refTitle">"An Unreliable Datagram Extension to QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-datagram-02</span>, <time datetime="2021-02-16" class="refDate">16 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-datagram-02.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-datagram-02.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-taps-arch">[I-D.ietf-taps-arch]</dt>
         <dd>
-<span class="refAuthor">Pauly, T.</span><span class="refAuthor">, Trammell, B.</span><span class="refAuthor">, Brunstrom, A.</span><span class="refAuthor">, Fairhurst, G.</span><span class="refAuthor">, Perkins, C.</span><span class="refAuthor">, Tiesel, P. S.</span><span class="refAuthor">, and C. A. Wood</span>, <span class="refTitle">"An Architecture for Transport Services"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-taps-arch-09</span>, <time datetime="2020-11-02" class="refDate">2 November 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-taps-arch-09.txt">https://datatracker.ietf.org/doc/html/draft-ietf-taps-arch-09.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Pauly, T.</span>, <span class="refAuthor">Trammell, B.</span>, <span class="refAuthor">Brunstrom, A.</span>, <span class="refAuthor">Fairhurst, G.</span>, <span class="refAuthor">Perkins, C.</span>, <span class="refAuthor">Tiesel, P. S.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"An Architecture for Transport Services"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-taps-arch-09</span>, <time datetime="2020-11-02" class="refDate">2 November 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-taps-arch-09.txt">https://datatracker.ietf.org/doc/html/draft-ietf-taps-arch-09.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.nottingham-httpbis-retry">[I-D.nottingham-httpbis-retry]</dt>
         <dd>
@@ -1868,31 +1868,31 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dd class="break"></dd>
 <dt id="QUIC-LB">[QUIC-LB]</dt>
         <dd>
-<span class="refAuthor">Duke, M.</span><span class="refAuthor"> and N. Banks</span>, <span class="refTitle">"QUIC-LB: Generating Routable QUIC Connection IDs"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-load-balancers-06</span>, <time datetime="2021-02-04" class="refDate">4 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-load-balancers-06.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-load-balancers-06.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Duke, M.</span> and <span class="refAuthor">N. Banks</span>, <span class="refTitle">"QUIC-LB: Generating Routable QUIC Connection IDs"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-load-balancers-06</span>, <time datetime="2021-02-04" class="refDate">4 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-load-balancers-06.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-load-balancers-06.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC2475">[RFC2475]</dt>
         <dd>
-<span class="refAuthor">Blake, S.</span><span class="refAuthor">, Black, D.</span><span class="refAuthor">, Carlson, M.</span><span class="refAuthor">, Davies, E.</span><span class="refAuthor">, Wang, Z.</span><span class="refAuthor">, and W. Weiss</span>, <span class="refTitle">"An Architecture for Differentiated Services"</span>, <span class="seriesInfo">RFC 2475</span>, <span class="seriesInfo">DOI 10.17487/RFC2475</span>, <time datetime="1998-12" class="refDate">December 1998</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc2475">https://datatracker.ietf.org/doc/html/rfc2475</a>&gt;</span>. </dd>
+<span class="refAuthor">Blake, S.</span>, <span class="refAuthor">Black, D.</span>, <span class="refAuthor">Carlson, M.</span>, <span class="refAuthor">Davies, E.</span>, <span class="refAuthor">Wang, Z.</span>, and <span class="refAuthor">W. Weiss</span>, <span class="refTitle">"An Architecture for Differentiated Services"</span>, <span class="seriesInfo">RFC 2475</span>, <span class="seriesInfo">DOI 10.17487/RFC2475</span>, <time datetime="1998-12" class="refDate">December 1998</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc2475">https://datatracker.ietf.org/doc/html/rfc2475</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC5077">[RFC5077]</dt>
         <dd>
-<span class="refAuthor">Salowey, J.</span><span class="refAuthor">, Zhou, H.</span><span class="refAuthor">, Eronen, P.</span><span class="refAuthor">, and H. Tschofenig</span>, <span class="refTitle">"Transport Layer Security (TLS) Session Resumption without Server-Side State"</span>, <span class="seriesInfo">RFC 5077</span>, <span class="seriesInfo">DOI 10.17487/RFC5077</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc5077">https://datatracker.ietf.org/doc/html/rfc5077</a>&gt;</span>. </dd>
+<span class="refAuthor">Salowey, J.</span>, <span class="refAuthor">Zhou, H.</span>, <span class="refAuthor">Eronen, P.</span>, and <span class="refAuthor">H. Tschofenig</span>, <span class="refTitle">"Transport Layer Security (TLS) Session Resumption without Server-Side State"</span>, <span class="seriesInfo">RFC 5077</span>, <span class="seriesInfo">DOI 10.17487/RFC5077</span>, <time datetime="2008-01" class="refDate">January 2008</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc5077">https://datatracker.ietf.org/doc/html/rfc5077</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC5382">[RFC5382]</dt>
         <dd>
-<span class="refAuthor">Guha, S., Ed.</span><span class="refAuthor">, Biswas, K.</span><span class="refAuthor">, Ford, B.</span><span class="refAuthor">, Sivakumar, S.</span><span class="refAuthor">, and P. Srisuresh</span>, <span class="refTitle">"NAT Behavioral Requirements for TCP"</span>, <span class="seriesInfo">BCP 142</span>, <span class="seriesInfo">RFC 5382</span>, <span class="seriesInfo">DOI 10.17487/RFC5382</span>, <time datetime="2008-10" class="refDate">October 2008</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc5382">https://datatracker.ietf.org/doc/html/rfc5382</a>&gt;</span>. </dd>
+<span class="refAuthor">Guha, S., Ed.</span>, <span class="refAuthor">Biswas, K.</span>, <span class="refAuthor">Ford, B.</span>, <span class="refAuthor">Sivakumar, S.</span>, and <span class="refAuthor">P. Srisuresh</span>, <span class="refTitle">"NAT Behavioral Requirements for TCP"</span>, <span class="seriesInfo">BCP 142</span>, <span class="seriesInfo">RFC 5382</span>, <span class="seriesInfo">DOI 10.17487/RFC5382</span>, <time datetime="2008-10" class="refDate">October 2008</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc5382">https://datatracker.ietf.org/doc/html/rfc5382</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7301">[RFC7301]</dt>
         <dd>
-<span class="refAuthor">Friedl, S.</span><span class="refAuthor">, Popov, A.</span><span class="refAuthor">, Langley, A.</span><span class="refAuthor">, and E. Stephan</span>, <span class="refTitle">"Transport Layer Security (TLS) Application-Layer Protocol Negotiation Extension"</span>, <span class="seriesInfo">RFC 7301</span>, <span class="seriesInfo">DOI 10.17487/RFC7301</span>, <time datetime="2014-07" class="refDate">July 2014</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7301">https://datatracker.ietf.org/doc/html/rfc7301</a>&gt;</span>. </dd>
+<span class="refAuthor">Friedl, S.</span>, <span class="refAuthor">Popov, A.</span>, <span class="refAuthor">Langley, A.</span>, and <span class="refAuthor">E. Stephan</span>, <span class="refTitle">"Transport Layer Security (TLS) Application-Layer Protocol Negotiation Extension"</span>, <span class="seriesInfo">RFC 7301</span>, <span class="seriesInfo">DOI 10.17487/RFC7301</span>, <time datetime="2014-07" class="refDate">July 2014</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7301">https://datatracker.ietf.org/doc/html/rfc7301</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7413">[RFC7413]</dt>
         <dd>
-<span class="refAuthor">Cheng, Y.</span><span class="refAuthor">, Chu, J.</span><span class="refAuthor">, Radhakrishnan, S.</span><span class="refAuthor">, and A. Jain</span>, <span class="refTitle">"TCP Fast Open"</span>, <span class="seriesInfo">RFC 7413</span>, <span class="seriesInfo">DOI 10.17487/RFC7413</span>, <time datetime="2014-12" class="refDate">December 2014</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7413">https://datatracker.ietf.org/doc/html/rfc7413</a>&gt;</span>. </dd>
+<span class="refAuthor">Cheng, Y.</span>, <span class="refAuthor">Chu, J.</span>, <span class="refAuthor">Radhakrishnan, S.</span>, and <span class="refAuthor">A. Jain</span>, <span class="refTitle">"TCP Fast Open"</span>, <span class="seriesInfo">RFC 7413</span>, <span class="seriesInfo">DOI 10.17487/RFC7413</span>, <time datetime="2014-12" class="refDate">December 2014</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7413">https://datatracker.ietf.org/doc/html/rfc7413</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8085">[RFC8085]</dt>
         <dd>
-<span class="refAuthor">Eggert, L.</span><span class="refAuthor">, Fairhurst, G.</span><span class="refAuthor">, and G. Shepherd</span>, <span class="refTitle">"UDP Usage Guidelines"</span>, <span class="seriesInfo">BCP 145</span>, <span class="seriesInfo">RFC 8085</span>, <span class="seriesInfo">DOI 10.17487/RFC8085</span>, <time datetime="2017-03" class="refDate">March 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8085">https://datatracker.ietf.org/doc/html/rfc8085</a>&gt;</span>. </dd>
+<span class="refAuthor">Eggert, L.</span>, <span class="refAuthor">Fairhurst, G.</span>, and <span class="refAuthor">G. Shepherd</span>, <span class="refTitle">"UDP Usage Guidelines"</span>, <span class="seriesInfo">BCP 145</span>, <span class="seriesInfo">RFC 8085</span>, <span class="seriesInfo">DOI 10.17487/RFC8085</span>, <time datetime="2017-03" class="refDate">March 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8085">https://datatracker.ietf.org/doc/html/rfc8085</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="Swett16">[Swett16]</dt>
         <dd>
@@ -1900,7 +1900,7 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dd class="break"></dd>
 <dt id="Trammell16">[Trammell16]</dt>
       <dd>
-<span class="refAuthor">Trammell, B.</span><span class="refAuthor"> and M. Kuehlewind</span>, <span class="refTitle">"Internet Path Transparency Measurements using RIPE Atlas (RIPE72 MAT presentation)"</span>, <time datetime="2016-05-25" class="refDate">25 May 2016</time>, <span>&lt;<a href="https://ripe72.ripe.net/wp-content/uploads/presentations/86-atlas-udpdiff.pdf">https://ripe72.ripe.net/wp-content/uploads/presentations/86-atlas-udpdiff.pdf</a>&gt;</span>. </dd>
+<span class="refAuthor">Trammell, B.</span> and <span class="refAuthor">M. Kuehlewind</span>, <span class="refTitle">"Internet Path Transparency Measurements using RIPE Atlas (RIPE72 MAT presentation)"</span>, <time datetime="2016-05-25" class="refDate">25 May 2016</time>, <span>&lt;<a href="https://ripe72.ripe.net/wp-content/uploads/presentations/86-atlas-udpdiff.pdf">https://ripe72.ripe.net/wp-content/uploads/presentations/86-atlas-udpdiff.pdf</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>

@@ -13,12 +13,12 @@ on caveats impacting network operations involving QUIC traffic. Its intended
 audience is network operators, as well as content providers that rely on the use
 of QUIC-aware middleboxes, e.g. for load balancing. 
     " name="description">
-<meta content="xml2rfc 3.5.0" name="generator">
+<meta content="xml2rfc 3.6.0" name="generator">
 <meta content="Internet-Draft" name="keyword">
 <meta content="draft-ietf-quic-manageability" name="ietf.draft">
 <!-- Generator version information:
-  xml2rfc 3.5.0
-    Python 3.8.7
+  xml2rfc 3.6.0
+    Python 3.8.8
     appdirs 1.4.4
     ConfigArgParse 1.2.3
     google-i18n-address 2.4.0
@@ -845,7 +845,7 @@ address div.right {
 </tr></thead>
 <tfoot><tr>
 <td class="left">Kuehlewind &amp; Trammell</td>
-<td class="center">Expires 18 September 2021</td>
+<td class="center">Expires 25 September 2021</td>
 <td class="right">[Page]</td>
 </tr></tfoot>
 </table>
@@ -858,12 +858,12 @@ address div.right {
 <dd class="internet-draft">draft-ietf-quic-manageability</dd>
 <dt class="label-published">Published:</dt>
 <dd class="published">
-<time datetime="2021-03-17" class="published">17 March 2021</time>
+<time datetime="2021-03-24" class="published">24 March 2021</time>
     </dd>
 <dt class="label-intended-status">Intended Status:</dt>
 <dd class="intended-status">Informational</dd>
 <dt class="label-expires">Expires:</dt>
-<dd class="expires"><time datetime="2021-09-18">18 September 2021</time></dd>
+<dd class="expires"><time datetime="2021-09-25">25 September 2021</time></dd>
 <dt class="label-authors">Authors:</dt>
 <dd class="authors">
 <div class="author">
@@ -904,7 +904,7 @@ of QUIC-aware middleboxes, e.g. for load balancing.<a href="#section-abstract-1"
         time. It is inappropriate to use Internet-Drafts as reference
         material or to cite them other than as "work in progress."<a href="#section-boilerplate.1-3" class="pilcrow">¶</a></p>
 <p id="section-boilerplate.1-4">
-        This Internet-Draft will expire on 18 September 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
+        This Internet-Draft will expire on 25 September 2021.<a href="#section-boilerplate.1-4" class="pilcrow">¶</a></p>
 </section>
 </div>
 <div id="copyright">
@@ -932,160 +932,160 @@ of QUIC-aware middleboxes, e.g. for load balancing.<a href="#section-abstract-1"
         <a href="#" onclick="scroll(0,0)" class="toplink">▲</a><h2 id="name-table-of-contents">
 <a href="#name-table-of-contents" class="section-name selfRef">Table of Contents</a>
         </h2>
-<nav class="toc"><ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.1">
-            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a><a href="#section-toc.1-1.1.1" class="pilcrow">¶</a></p>
+<nav class="toc"><ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.1">
+            <p id="section-toc.1-1.1.1" class="keepWithNext"><a href="#section-1" class="xref">1</a>.  <a href="#name-introduction" class="xref">Introduction</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.2">
-            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-features-of-the-quic-wire-i" class="xref">Features of the QUIC Wire Image</a><a href="#section-toc.1-1.2.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.2.2.1">
-                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-quic-packet-header-structur" class="xref">QUIC Packet Header Structure</a><a href="#section-toc.1-1.2.2.1.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.2">
+            <p id="section-toc.1-1.2.1"><a href="#section-2" class="xref">2</a>.  <a href="#name-features-of-the-quic-wire-i" class="xref">Features of the QUIC Wire Image</a></p>
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.2.2.1">
+                <p id="section-toc.1-1.2.2.1.1" class="keepWithNext"><a href="#section-2.1" class="xref">2.1</a>.  <a href="#name-quic-packet-header-structur" class="xref">QUIC Packet Header Structure</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.2.2.2">
-                <p id="section-toc.1-1.2.2.2.1" class="keepWithNext"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-coalesced-packets" class="xref">Coalesced Packets</a><a href="#section-toc.1-1.2.2.2.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.2">
+                <p id="section-toc.1-1.2.2.2.1" class="keepWithNext"><a href="#section-2.2" class="xref">2.2</a>.  <a href="#name-coalesced-packets" class="xref">Coalesced Packets</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.2.2.3">
-                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="xref">2.3</a>.  <a href="#name-use-of-port-numbers" class="xref">Use of Port Numbers</a><a href="#section-toc.1-1.2.2.3.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.3">
+                <p id="section-toc.1-1.2.2.3.1"><a href="#section-2.3" class="xref">2.3</a>.  <a href="#name-use-of-port-numbers" class="xref">Use of Port Numbers</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.2.2.4">
-                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="xref">2.4</a>.  <a href="#name-the-quic-handshake" class="xref">The QUIC Handshake</a><a href="#section-toc.1-1.2.2.4.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.4">
+                <p id="section-toc.1-1.2.2.4.1"><a href="#section-2.4" class="xref">2.4</a>.  <a href="#name-the-quic-handshake" class="xref">The QUIC Handshake</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.2.2.5">
-                <p id="section-toc.1-1.2.2.5.1"><a href="#section-2.5" class="xref">2.5</a>.  <a href="#name-integrity-protection-of-the" class="xref">Integrity Protection of the Wire Image</a><a href="#section-toc.1-1.2.2.5.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.5">
+                <p id="section-toc.1-1.2.2.5.1"><a href="#section-2.5" class="xref">2.5</a>.  <a href="#name-integrity-protection-of-the" class="xref">Integrity Protection of the Wire Image</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.2.2.6">
-                <p id="section-toc.1-1.2.2.6.1"><a href="#section-2.6" class="xref">2.6</a>.  <a href="#name-connection-id-and-rebinding" class="xref">Connection ID and Rebinding</a><a href="#section-toc.1-1.2.2.6.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.6">
+                <p id="section-toc.1-1.2.2.6.1"><a href="#section-2.6" class="xref">2.6</a>.  <a href="#name-connection-id-and-rebinding" class="xref">Connection ID and Rebinding</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.2.2.7">
-                <p id="section-toc.1-1.2.2.7.1"><a href="#section-2.7" class="xref">2.7</a>.  <a href="#name-packet-numbers" class="xref">Packet Numbers</a><a href="#section-toc.1-1.2.2.7.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.7">
+                <p id="section-toc.1-1.2.2.7.1"><a href="#section-2.7" class="xref">2.7</a>.  <a href="#name-packet-numbers" class="xref">Packet Numbers</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.2.2.8">
-                <p id="section-toc.1-1.2.2.8.1"><a href="#section-2.8" class="xref">2.8</a>.  <a href="#name-version-negotiation-and-gre" class="xref">Version Negotiation and Greasing</a><a href="#section-toc.1-1.2.2.8.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.2.2.8">
+                <p id="section-toc.1-1.2.2.8.1"><a href="#section-2.8" class="xref">2.8</a>.  <a href="#name-version-negotiation-and-gre" class="xref">Version Negotiation and Greasing</a></p>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.3">
-            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-network-visible-information" class="xref">Network-Visible Information about QUIC Flows</a><a href="#section-toc.1-1.3.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.3.2.1">
-                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-identifying-quic-traffic" class="xref">Identifying QUIC Traffic</a><a href="#section-toc.1-1.3.2.1.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.3.2.1.2.1">
-                    <p id="section-toc.1-1.3.2.1.2.1.1"><a href="#section-3.1.1" class="xref">3.1.1</a>.  <a href="#name-identifying-negotiated-vers" class="xref">Identifying Negotiated Version</a><a href="#section-toc.1-1.3.2.1.2.1.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.3">
+            <p id="section-toc.1-1.3.1"><a href="#section-3" class="xref">3</a>.  <a href="#name-network-visible-information" class="xref">Network-Visible Information about QUIC Flows</a></p>
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.3.2.1">
+                <p id="section-toc.1-1.3.2.1.1"><a href="#section-3.1" class="xref">3.1</a>.  <a href="#name-identifying-quic-traffic" class="xref">Identifying QUIC Traffic</a></p>
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.3.2.1.2.1">
+                    <p id="section-toc.1-1.3.2.1.2.1.1"><a href="#section-3.1.1" class="xref">3.1.1</a>.  <a href="#name-identifying-negotiated-vers" class="xref">Identifying Negotiated Version</a></p>
 </li>
-                  <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.1.2.2">
-                    <p id="section-toc.1-1.3.2.1.2.2.1"><a href="#section-3.1.2" class="xref">3.1.2</a>.  <a href="#name-rejection-of-garbage-traffi" class="xref">Rejection of Garbage Traffic</a><a href="#section-toc.1-1.3.2.1.2.2.1" class="pilcrow">¶</a></p>
+                  <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.1.2.2">
+                    <p id="section-toc.1-1.3.2.1.2.2.1"><a href="#section-3.1.2" class="xref">3.1.2</a>.  <a href="#name-rejection-of-garbage-traffi" class="xref">Rejection of Garbage Traffic</a></p>
 </li>
                 </ul>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.2">
-                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-connection-confirmation" class="xref">Connection Confirmation</a><a href="#section-toc.1-1.3.2.2.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.2">
+                <p id="section-toc.1-1.3.2.2.1"><a href="#section-3.2" class="xref">3.2</a>.  <a href="#name-connection-confirmation" class="xref">Connection Confirmation</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.3">
-                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-distinguishing-acknowledgme" class="xref">Distinguishing Acknowledgment Traffic</a><a href="#section-toc.1-1.3.2.3.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.3">
+                <p id="section-toc.1-1.3.2.3.1"><a href="#section-3.3" class="xref">3.3</a>.  <a href="#name-distinguishing-acknowledgme" class="xref">Distinguishing Acknowledgment Traffic</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.4">
-                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="xref">3.4</a>.  <a href="#name-application-identification" class="xref">Application Identification</a><a href="#section-toc.1-1.3.2.4.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.3.2.4.2.1">
-                    <p id="section-toc.1-1.3.2.4.2.1.1"><a href="#section-3.4.1" class="xref">3.4.1</a>.  <a href="#name-extracting-server-name-indi" class="xref">Extracting Server Name Indication (SNI) Information</a><a href="#section-toc.1-1.3.2.4.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                </ul>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.5">
-                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-flow-association" class="xref">Flow Association</a><a href="#section-toc.1-1.3.2.5.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.6">
-                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="xref">3.6</a>.  <a href="#name-flow-teardown" class="xref">Flow Teardown</a><a href="#section-toc.1-1.3.2.6.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.7">
-                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="xref">3.7</a>.  <a href="#name-flow-symmetry-measurement" class="xref">Flow Symmetry Measurement</a><a href="#section-toc.1-1.3.2.7.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.8">
-                <p id="section-toc.1-1.3.2.8.1"><a href="#section-3.8" class="xref">3.8</a>.  <a href="#name-round-trip-time-rtt-measure" class="xref">Round-Trip Time (RTT) Measurement</a><a href="#section-toc.1-1.3.2.8.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.3.2.8.2.1">
-                    <p id="section-toc.1-1.3.2.8.2.1.1"><a href="#section-3.8.1" class="xref">3.8.1</a>.  <a href="#name-measuring-initial-rtt" class="xref">Measuring Initial RTT</a><a href="#section-toc.1-1.3.2.8.2.1.1" class="pilcrow">¶</a></p>
-</li>
-                  <li class="toc compact ulEmpty" id="section-toc.1-1.3.2.8.2.2">
-                    <p id="section-toc.1-1.3.2.8.2.2.1"><a href="#section-3.8.2" class="xref">3.8.2</a>.  <a href="#name-using-the-spin-bit-for-pass" class="xref">Using the Spin Bit for Passive RTT Measurement</a><a href="#section-toc.1-1.3.2.8.2.2.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.4">
+                <p id="section-toc.1-1.3.2.4.1"><a href="#section-3.4" class="xref">3.4</a>.  <a href="#name-application-identification" class="xref">Application Identification</a></p>
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.3.2.4.2.1">
+                    <p id="section-toc.1-1.3.2.4.2.1.1"><a href="#section-3.4.1" class="xref">3.4.1</a>.  <a href="#name-extracting-server-name-indi" class="xref">Extracting Server Name Indication (SNI) Information</a></p>
 </li>
                 </ul>
 </li>
-            </ul>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.5">
+                <p id="section-toc.1-1.3.2.5.1"><a href="#section-3.5" class="xref">3.5</a>.  <a href="#name-flow-association" class="xref">Flow Association</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.4">
-            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-specific-network-management" class="xref">Specific Network Management Tasks</a><a href="#section-toc.1-1.4.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.4.2.1">
-                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-passive-network-performance" class="xref">Passive Network Performance Measurement and Troubleshooting</a><a href="#section-toc.1-1.4.2.1.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.6">
+                <p id="section-toc.1-1.3.2.6.1"><a href="#section-3.6" class="xref">3.6</a>.  <a href="#name-flow-teardown" class="xref">Flow Teardown</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.2">
-                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-stateful-treatment-of-quic-" class="xref">Stateful Treatment of QUIC Traffic</a><a href="#section-toc.1-1.4.2.2.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.7">
+                <p id="section-toc.1-1.3.2.7.1"><a href="#section-3.7" class="xref">3.7</a>.  <a href="#name-flow-symmetry-measurement" class="xref">Flow Symmetry Measurement</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.3">
-                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="xref">4.3</a>.  <a href="#name-address-rewriting-to-ensure" class="xref">Address Rewriting to Ensure Routing Stability</a><a href="#section-toc.1-1.4.2.3.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.8">
+                <p id="section-toc.1-1.3.2.8.1"><a href="#section-3.8" class="xref">3.8</a>.  <a href="#name-round-trip-time-rtt-measure" class="xref">Round-Trip Time (RTT) Measurement</a></p>
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.3.2.8.2.1">
+                    <p id="section-toc.1-1.3.2.8.2.1.1"><a href="#section-3.8.1" class="xref">3.8.1</a>.  <a href="#name-measuring-initial-rtt" class="xref">Measuring Initial RTT</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.4">
-                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-server-cooperation-with-loa" class="xref">Server Cooperation with Load Balancers</a><a href="#section-toc.1-1.4.2.4.1" class="pilcrow">¶</a></p>
+                  <li class="ulEmpty toc compact" id="section-toc.1-1.3.2.8.2.2">
+                    <p id="section-toc.1-1.3.2.8.2.2.1"><a href="#section-3.8.2" class="xref">3.8.2</a>.  <a href="#name-using-the-spin-bit-for-pass" class="xref">Using the Spin Bit for Passive RTT Measurement</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.5">
-                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="xref">4.5</a>.  <a href="#name-filtering-behavior" class="xref">Filtering Behavior</a><a href="#section-toc.1-1.4.2.5.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.6">
-                <p id="section-toc.1-1.4.2.6.1"><a href="#section-4.6" class="xref">4.6</a>.  <a href="#name-udp-policing" class="xref">UDP Policing</a><a href="#section-toc.1-1.4.2.6.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.7">
-                <p id="section-toc.1-1.4.2.7.1"><a href="#section-4.7" class="xref">4.7</a>.  <a href="#name-ddos-detection-and-mitigati" class="xref">DDoS Detection and Mitigation</a><a href="#section-toc.1-1.4.2.7.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.8">
-                <p id="section-toc.1-1.4.2.8.1"><a href="#section-4.8" class="xref">4.8</a>.  <a href="#name-handling-icmp-messages" class="xref">Handling ICMP Messages</a><a href="#section-toc.1-1.4.2.8.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.9">
-                <p id="section-toc.1-1.4.2.9.1"><a href="#section-4.9" class="xref">4.9</a>.  <a href="#name-quality-of-service-handling" class="xref">Quality of Service handling and ECMP</a><a href="#section-toc.1-1.4.2.9.1" class="pilcrow">¶</a></p>
-</li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.4.2.10">
-                <p id="section-toc.1-1.4.2.10.1"><a href="#section-4.10" class="xref">4.10</a>. <a href="#name-guiding-path-mtu" class="xref">Guiding Path MTU</a><a href="#section-toc.1-1.4.2.10.1" class="pilcrow">¶</a></p>
+                </ul>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.5">
-            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a><a href="#section-toc.1-1.5.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.4">
+            <p id="section-toc.1-1.4.1"><a href="#section-4" class="xref">4</a>.  <a href="#name-specific-network-management" class="xref">Specific Network Management Tasks</a></p>
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.4.2.1">
+                <p id="section-toc.1-1.4.2.1.1"><a href="#section-4.1" class="xref">4.1</a>.  <a href="#name-passive-network-performance" class="xref">Passive Network Performance Measurement and Troubleshooting</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.6">
-            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a><a href="#section-toc.1-1.6.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.2">
+                <p id="section-toc.1-1.4.2.2.1"><a href="#section-4.2" class="xref">4.2</a>.  <a href="#name-stateful-treatment-of-quic-" class="xref">Stateful Treatment of QUIC Traffic</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.7">
-            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-contributors" class="xref">Contributors</a><a href="#section-toc.1-1.7.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.3">
+                <p id="section-toc.1-1.4.2.3.1"><a href="#section-4.3" class="xref">4.3</a>.  <a href="#name-address-rewriting-to-ensure" class="xref">Address Rewriting to Ensure Routing Stability</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.8">
-            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-acknowledgments" class="xref">Acknowledgments</a><a href="#section-toc.1-1.8.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.4">
+                <p id="section-toc.1-1.4.2.4.1"><a href="#section-4.4" class="xref">4.4</a>.  <a href="#name-server-cooperation-with-loa" class="xref">Server Cooperation with Load Balancers</a></p>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.9">
-            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-references" class="xref">References</a><a href="#section-toc.1-1.9.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.9.2.1">
-                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a><a href="#section-toc.1-1.9.2.1.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.5">
+                <p id="section-toc.1-1.4.2.5.1"><a href="#section-4.5" class="xref">4.5</a>.  <a href="#name-filtering-behavior" class="xref">Filtering Behavior</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.9.2.2">
-                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a><a href="#section-toc.1-1.9.2.2.1" class="pilcrow">¶</a></p>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.6">
+                <p id="section-toc.1-1.4.2.6.1"><a href="#section-4.6" class="xref">4.6</a>.  <a href="#name-udp-policing" class="xref">UDP Policing</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.7">
+                <p id="section-toc.1-1.4.2.7.1"><a href="#section-4.7" class="xref">4.7</a>.  <a href="#name-ddos-detection-and-mitigati" class="xref">DDoS Detection and Mitigation</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.8">
+                <p id="section-toc.1-1.4.2.8.1"><a href="#section-4.8" class="xref">4.8</a>.  <a href="#name-handling-icmp-messages" class="xref">Handling ICMP Messages</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.9">
+                <p id="section-toc.1-1.4.2.9.1"><a href="#section-4.9" class="xref">4.9</a>.  <a href="#name-quality-of-service-handling" class="xref">Quality of Service handling and ECMP</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.4.2.10">
+                <p id="section-toc.1-1.4.2.10.1"><a href="#section-4.10" class="xref">4.10</a>. <a href="#name-guiding-path-mtu" class="xref">Guiding Path MTU</a></p>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.10">
-            <p id="section-toc.1-1.10.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-appendix" class="xref">Appendix</a><a href="#section-toc.1-1.10.1" class="pilcrow">¶</a></p>
-<ul class="toc compact ulEmpty">
-<li class="toc compact ulEmpty" id="section-toc.1-1.10.2.1">
-                <p id="section-toc.1-1.10.2.1.1"><a href="#section-a.1" class="xref">A.1</a>.  <a href="#name-distinguishing-ietf-quic-an" class="xref">Distinguishing IETF QUIC and Google QUIC Versions</a><a href="#section-toc.1-1.10.2.1.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.5">
+            <p id="section-toc.1-1.5.1"><a href="#section-5" class="xref">5</a>.  <a href="#name-iana-considerations" class="xref">IANA Considerations</a></p>
 </li>
-              <li class="toc compact ulEmpty" id="section-toc.1-1.10.2.2">
-                <p id="section-toc.1-1.10.2.2.1"><a href="#section-a.2" class="xref">A.2</a>.  <a href="#name-extracting-the-crypto-frame" class="xref">Extracting the CRYPTO frame</a><a href="#section-toc.1-1.10.2.2.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.6">
+            <p id="section-toc.1-1.6.1"><a href="#section-6" class="xref">6</a>.  <a href="#name-security-considerations" class="xref">Security Considerations</a></p>
+</li>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.7">
+            <p id="section-toc.1-1.7.1"><a href="#section-7" class="xref">7</a>.  <a href="#name-contributors" class="xref">Contributors</a></p>
+</li>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.8">
+            <p id="section-toc.1-1.8.1"><a href="#section-8" class="xref">8</a>.  <a href="#name-acknowledgments" class="xref">Acknowledgments</a></p>
+</li>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.9">
+            <p id="section-toc.1-1.9.1"><a href="#section-9" class="xref">9</a>.  <a href="#name-references" class="xref">References</a></p>
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.9.2.1">
+                <p id="section-toc.1-1.9.2.1.1"><a href="#section-9.1" class="xref">9.1</a>.  <a href="#name-normative-references" class="xref">Normative References</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.9.2.2">
+                <p id="section-toc.1-1.9.2.2.1"><a href="#section-9.2" class="xref">9.2</a>.  <a href="#name-informative-references" class="xref">Informative References</a></p>
 </li>
             </ul>
 </li>
-          <li class="toc compact ulEmpty" id="section-toc.1-1.11">
-            <p id="section-toc.1-1.11.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a><a href="#section-toc.1-1.11.1" class="pilcrow">¶</a></p>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.10">
+            <p id="section-toc.1-1.10.1"><a href="#section-appendix.a" class="xref">Appendix A</a>.  <a href="#name-appendix" class="xref">Appendix</a></p>
+<ul class="ulEmpty toc compact">
+<li class="ulEmpty toc compact" id="section-toc.1-1.10.2.1">
+                <p id="section-toc.1-1.10.2.1.1"><a href="#section-a.1" class="xref">A.1</a>.  <a href="#name-distinguishing-ietf-quic-an" class="xref">Distinguishing IETF QUIC and Google QUIC Versions</a></p>
+</li>
+              <li class="ulEmpty toc compact" id="section-toc.1-1.10.2.2">
+                <p id="section-toc.1-1.10.2.2.1"><a href="#section-a.2" class="xref">A.2</a>.  <a href="#name-extracting-the-crypto-frame" class="xref">Extracting the CRYPTO frame</a></p>
+</li>
+            </ul>
+</li>
+          <li class="ulEmpty toc compact" id="section-toc.1-1.11">
+            <p id="section-toc.1-1.11.1"><a href="#section-appendix.b" class="xref"></a><a href="#name-authors-addresses" class="xref">Authors' Addresses</a></p>
 </li>
         </ul>
 </nav>
@@ -2251,11 +2251,11 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dl class="references">
 <dt id="QUIC-TLS">[QUIC-TLS]</dt>
         <dd>
-<span class="refAuthor">Thomson, M.</span><span class="refAuthor"> and S. Turner</span>, <span class="refTitle">"Using TLS to Secure QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-tls-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls-34.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Thomson, M.</span> and <span class="refAuthor">S. Turner</span>, <span class="refTitle">"Using TLS to Secure QUIC"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-tls-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-tls-34.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="QUIC-TRANSPORT">[QUIC-TRANSPORT]</dt>
       <dd>
-<span class="refAuthor">Iyengar, J.</span><span class="refAuthor"> and M. Thomson</span>, <span class="refTitle">"QUIC: A UDP-Based Multiplexed and Secure Transport"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-transport-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-34.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Iyengar, J.</span> and <span class="refAuthor">M. Thomson</span>, <span class="refTitle">"QUIC: A UDP-Based Multiplexed and Secure Transport"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-transport-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-transport-34.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
@@ -2266,23 +2266,23 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dl class="references">
 <dt id="DOTS-ARCH">[DOTS-ARCH]</dt>
         <dd>
-<span class="refAuthor">Mortensen, A.</span><span class="refAuthor">, Reddy, T.</span><span class="refAuthor">, Andreasen, F.</span><span class="refAuthor">, Teague, N.</span><span class="refAuthor">, and R. Compton</span>, <span class="refTitle">"DDoS Open Threat Signaling (DOTS) Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dots-architecture-18</span>, <time datetime="2020-03-06" class="refDate">6 March 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dots-architecture-18.txt">https://datatracker.ietf.org/doc/html/draft-ietf-dots-architecture-18.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Mortensen, A.</span>, <span class="refAuthor">Reddy, T.</span>, <span class="refAuthor">Andreasen, F.</span>, <span class="refAuthor">Teague, N.</span>, and <span class="refAuthor">R. Compton</span>, <span class="refTitle">"DDoS Open Threat Signaling (DOTS) Architecture"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-dots-architecture-18</span>, <time datetime="2020-03-06" class="refDate">6 March 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-dots-architecture-18.txt">https://datatracker.ietf.org/doc/html/draft-ietf-dots-architecture-18.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="DPLPMTUD">[DPLPMTUD]</dt>
         <dd>
-<span class="refAuthor">Fairhurst, G.</span><span class="refAuthor">, Jones, T.</span><span class="refAuthor">, Tüxen, M.</span><span class="refAuthor">, Rüngeler, I.</span><span class="refAuthor">, and T. Völker</span>, <span class="refTitle">"Packetization Layer Path MTU Discovery for Datagram Transports"</span>, <span class="seriesInfo">RFC 8899</span>, <span class="seriesInfo">DOI 10.17487/RFC8899</span>, <time datetime="2020-09" class="refDate">September 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8899">https://datatracker.ietf.org/doc/html/rfc8899</a>&gt;</span>. </dd>
+<span class="refAuthor">Fairhurst, G.</span>, <span class="refAuthor">Jones, T.</span>, <span class="refAuthor">Tüxen, M.</span>, <span class="refAuthor">Rüngeler, I.</span>, and <span class="refAuthor">T. Völker</span>, <span class="refTitle">"Packetization Layer Path MTU Discovery for Datagram Transports"</span>, <span class="seriesInfo">RFC 8899</span>, <span class="seriesInfo">DOI 10.17487/RFC8899</span>, <time datetime="2020-09" class="refDate">September 2020</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8899">https://datatracker.ietf.org/doc/html/rfc8899</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="I-D.ietf-quic-applicability">[I-D.ietf-quic-applicability]</dt>
         <dd>
-<span class="refAuthor">Kuehlewind, M.</span><span class="refAuthor"> and B. Trammell</span>, <span class="refTitle">"Applicability of the QUIC Transport Protocol"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-applicability-10</span>, <time datetime="2021-02-22" class="refDate">22 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-applicability-10.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-applicability-10.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Kuehlewind, M.</span> and <span class="refAuthor">B. Trammell</span>, <span class="refTitle">"Applicability of the QUIC Transport Protocol"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-applicability-10</span>, <time datetime="2021-02-22" class="refDate">22 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-applicability-10.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-applicability-10.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="IPIM">[IPIM]</dt>
         <dd>
-<span class="refAuthor">Allman, M.</span><span class="refAuthor">, Beverly, R.</span><span class="refAuthor">, and B. Trammell</span>, <span class="refTitle">"In-Protocol Internet Measurement (arXiv preprint 1612.02902)"</span>, <time datetime="2016-12-09" class="refDate">9 December 2016</time>, <span>&lt;<a href="https://arxiv.org/abs/1612.02902">https://arxiv.org/abs/1612.02902</a>&gt;</span>. </dd>
+<span class="refAuthor">Allman, M.</span>, <span class="refAuthor">Beverly, R.</span>, and <span class="refAuthor">B. Trammell</span>, <span class="refTitle">"In-Protocol Internet Measurement (arXiv preprint 1612.02902)"</span>, <time datetime="2016-12-09" class="refDate">9 December 2016</time>, <span>&lt;<a href="https://arxiv.org/abs/1612.02902">https://arxiv.org/abs/1612.02902</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="QUIC-APPLICABILITY">[QUIC-APPLICABILITY]</dt>
         <dd>
-<span class="refAuthor">Kuehlewind, M.</span><span class="refAuthor"> and B. Trammell</span>, <span class="refTitle">"Applicability of the QUIC Transport Protocol"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-applicability-10</span>, <time datetime="2021-02-22" class="refDate">22 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-applicability-10.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-applicability-10.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Kuehlewind, M.</span> and <span class="refAuthor">B. Trammell</span>, <span class="refTitle">"Applicability of the QUIC Transport Protocol"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-applicability-10</span>, <time datetime="2021-02-22" class="refDate">22 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-applicability-10.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-applicability-10.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="QUIC-HTTP">[QUIC-HTTP]</dt>
         <dd>
@@ -2294,15 +2294,15 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dd class="break"></dd>
 <dt id="QUIC-RECOVERY">[QUIC-RECOVERY]</dt>
         <dd>
-<span class="refAuthor">Iyengar, J.</span><span class="refAuthor"> and I. Swett</span>, <span class="refTitle">"QUIC Loss Detection and Congestion Control"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-recovery-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-recovery-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-recovery-34.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Iyengar, J.</span> and <span class="refAuthor">I. Swett</span>, <span class="refTitle">"QUIC Loss Detection and Congestion Control"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-recovery-34</span>, <time datetime="2021-01-14" class="refDate">14 January 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-recovery-34.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-recovery-34.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="QUIC_LB">[QUIC_LB]</dt>
         <dd>
-<span class="refAuthor">Duke, M.</span><span class="refAuthor"> and N. Banks</span>, <span class="refTitle">"QUIC-LB: Generating Routable QUIC Connection IDs"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-load-balancers-06</span>, <time datetime="2021-02-04" class="refDate">4 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-load-balancers-06.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-load-balancers-06.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Duke, M.</span> and <span class="refAuthor">N. Banks</span>, <span class="refTitle">"QUIC-LB: Generating Routable QUIC Connection IDs"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-quic-load-balancers-06</span>, <time datetime="2021-02-04" class="refDate">4 February 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-quic-load-balancers-06.txt">https://datatracker.ietf.org/doc/html/draft-ietf-quic-load-balancers-06.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC1191">[RFC1191]</dt>
         <dd>
-<span class="refAuthor">Mogul, J.</span><span class="refAuthor"> and S. Deering</span>, <span class="refTitle">"Path MTU discovery"</span>, <span class="seriesInfo">RFC 1191</span>, <span class="seriesInfo">DOI 10.17487/RFC1191</span>, <time datetime="1990-11" class="refDate">November 1990</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc1191">https://datatracker.ietf.org/doc/html/rfc1191</a>&gt;</span>. </dd>
+<span class="refAuthor">Mogul, J.</span> and <span class="refAuthor">S. Deering</span>, <span class="refTitle">"Path MTU discovery"</span>, <span class="seriesInfo">RFC 1191</span>, <span class="seriesInfo">DOI 10.17487/RFC1191</span>, <time datetime="1990-11" class="refDate">November 1990</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc1191">https://datatracker.ietf.org/doc/html/rfc1191</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC1812">[RFC1812]</dt>
         <dd>
@@ -2310,23 +2310,23 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dd class="break"></dd>
 <dt id="RFC2475">[RFC2475]</dt>
         <dd>
-<span class="refAuthor">Blake, S.</span><span class="refAuthor">, Black, D.</span><span class="refAuthor">, Carlson, M.</span><span class="refAuthor">, Davies, E.</span><span class="refAuthor">, Wang, Z.</span><span class="refAuthor">, and W. Weiss</span>, <span class="refTitle">"An Architecture for Differentiated Services"</span>, <span class="seriesInfo">RFC 2475</span>, <span class="seriesInfo">DOI 10.17487/RFC2475</span>, <time datetime="1998-12" class="refDate">December 1998</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc2475">https://datatracker.ietf.org/doc/html/rfc2475</a>&gt;</span>. </dd>
+<span class="refAuthor">Blake, S.</span>, <span class="refAuthor">Black, D.</span>, <span class="refAuthor">Carlson, M.</span>, <span class="refAuthor">Davies, E.</span>, <span class="refAuthor">Wang, Z.</span>, and <span class="refAuthor">W. Weiss</span>, <span class="refTitle">"An Architecture for Differentiated Services"</span>, <span class="seriesInfo">RFC 2475</span>, <span class="seriesInfo">DOI 10.17487/RFC2475</span>, <time datetime="1998-12" class="refDate">December 1998</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc2475">https://datatracker.ietf.org/doc/html/rfc2475</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC4443">[RFC4443]</dt>
         <dd>
-<span class="refAuthor">Conta, A.</span><span class="refAuthor">, Deering, S.</span><span class="refAuthor">, and M. Gupta, Ed.</span>, <span class="refTitle">"Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification"</span>, <span class="seriesInfo">STD 89</span>, <span class="seriesInfo">RFC 4443</span>, <span class="seriesInfo">DOI 10.17487/RFC4443</span>, <time datetime="2006-03" class="refDate">March 2006</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc4443">https://datatracker.ietf.org/doc/html/rfc4443</a>&gt;</span>. </dd>
+<span class="refAuthor">Conta, A.</span>, <span class="refAuthor">Deering, S.</span>, and <span class="refAuthor">M. Gupta, Ed.</span>, <span class="refTitle">"Internet Control Message Protocol (ICMPv6) for the Internet Protocol Version 6 (IPv6) Specification"</span>, <span class="seriesInfo">STD 89</span>, <span class="seriesInfo">RFC 4443</span>, <span class="seriesInfo">DOI 10.17487/RFC4443</span>, <time datetime="2006-03" class="refDate">March 2006</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc4443">https://datatracker.ietf.org/doc/html/rfc4443</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC4787">[RFC4787]</dt>
         <dd>
-<span class="refAuthor">Audet, F., Ed.</span><span class="refAuthor"> and C. Jennings</span>, <span class="refTitle">"Network Address Translation (NAT) Behavioral Requirements for Unicast UDP"</span>, <span class="seriesInfo">BCP 127</span>, <span class="seriesInfo">RFC 4787</span>, <span class="seriesInfo">DOI 10.17487/RFC4787</span>, <time datetime="2007-01" class="refDate">January 2007</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc4787">https://datatracker.ietf.org/doc/html/rfc4787</a>&gt;</span>. </dd>
+<span class="refAuthor">Audet, F., Ed.</span> and <span class="refAuthor">C. Jennings</span>, <span class="refTitle">"Network Address Translation (NAT) Behavioral Requirements for Unicast UDP"</span>, <span class="seriesInfo">BCP 127</span>, <span class="seriesInfo">RFC 4787</span>, <span class="seriesInfo">DOI 10.17487/RFC4787</span>, <time datetime="2007-01" class="refDate">January 2007</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc4787">https://datatracker.ietf.org/doc/html/rfc4787</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC4937">[RFC4937]</dt>
         <dd>
-<span class="refAuthor">Arberg, P.</span><span class="refAuthor"> and V. Mammoliti</span>, <span class="refTitle">"IANA Considerations for PPP over Ethernet (PPPoE)"</span>, <span class="seriesInfo">RFC 4937</span>, <span class="seriesInfo">DOI 10.17487/RFC4937</span>, <time datetime="2007-06" class="refDate">June 2007</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc4937">https://datatracker.ietf.org/doc/html/rfc4937</a>&gt;</span>. </dd>
+<span class="refAuthor">Arberg, P.</span> and <span class="refAuthor">V. Mammoliti</span>, <span class="refTitle">"IANA Considerations for PPP over Ethernet (PPPoE)"</span>, <span class="seriesInfo">RFC 4937</span>, <span class="seriesInfo">DOI 10.17487/RFC4937</span>, <time datetime="2007-06" class="refDate">June 2007</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc4937">https://datatracker.ietf.org/doc/html/rfc4937</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC5382">[RFC5382]</dt>
         <dd>
-<span class="refAuthor">Guha, S., Ed.</span><span class="refAuthor">, Biswas, K.</span><span class="refAuthor">, Ford, B.</span><span class="refAuthor">, Sivakumar, S.</span><span class="refAuthor">, and P. Srisuresh</span>, <span class="refTitle">"NAT Behavioral Requirements for TCP"</span>, <span class="seriesInfo">BCP 142</span>, <span class="seriesInfo">RFC 5382</span>, <span class="seriesInfo">DOI 10.17487/RFC5382</span>, <time datetime="2008-10" class="refDate">October 2008</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc5382">https://datatracker.ietf.org/doc/html/rfc5382</a>&gt;</span>. </dd>
+<span class="refAuthor">Guha, S., Ed.</span>, <span class="refAuthor">Biswas, K.</span>, <span class="refAuthor">Ford, B.</span>, <span class="refAuthor">Sivakumar, S.</span>, and <span class="refAuthor">P. Srisuresh</span>, <span class="refTitle">"NAT Behavioral Requirements for TCP"</span>, <span class="seriesInfo">BCP 142</span>, <span class="seriesInfo">RFC 5382</span>, <span class="seriesInfo">DOI 10.17487/RFC5382</span>, <time datetime="2008-10" class="refDate">October 2008</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc5382">https://datatracker.ietf.org/doc/html/rfc5382</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC6066">[RFC6066]</dt>
         <dd>
@@ -2334,7 +2334,7 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dd class="break"></dd>
 <dt id="RFC7301">[RFC7301]</dt>
         <dd>
-<span class="refAuthor">Friedl, S.</span><span class="refAuthor">, Popov, A.</span><span class="refAuthor">, Langley, A.</span><span class="refAuthor">, and E. Stephan</span>, <span class="refTitle">"Transport Layer Security (TLS) Application-Layer Protocol Negotiation Extension"</span>, <span class="seriesInfo">RFC 7301</span>, <span class="seriesInfo">DOI 10.17487/RFC7301</span>, <time datetime="2014-07" class="refDate">July 2014</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7301">https://datatracker.ietf.org/doc/html/rfc7301</a>&gt;</span>. </dd>
+<span class="refAuthor">Friedl, S.</span>, <span class="refAuthor">Popov, A.</span>, <span class="refAuthor">Langley, A.</span>, and <span class="refAuthor">E. Stephan</span>, <span class="refTitle">"Transport Layer Security (TLS) Application-Layer Protocol Negotiation Extension"</span>, <span class="seriesInfo">RFC 7301</span>, <span class="seriesInfo">DOI 10.17487/RFC7301</span>, <time datetime="2014-07" class="refDate">July 2014</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7301">https://datatracker.ietf.org/doc/html/rfc7301</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC7605">[RFC7605]</dt>
         <dd>
@@ -2342,27 +2342,27 @@ Innovation under contract no. 15.0268. This support does not imply endorsement.<
 <dd class="break"></dd>
 <dt id="RFC7983">[RFC7983]</dt>
         <dd>
-<span class="refAuthor">Petit-Huguenin, M.</span><span class="refAuthor"> and G. Salgueiro</span>, <span class="refTitle">"Multiplexing Scheme Updates for Secure Real-time Transport Protocol (SRTP) Extension for Datagram Transport Layer Security (DTLS)"</span>, <span class="seriesInfo">RFC 7983</span>, <span class="seriesInfo">DOI 10.17487/RFC7983</span>, <time datetime="2016-09" class="refDate">September 2016</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7983">https://datatracker.ietf.org/doc/html/rfc7983</a>&gt;</span>. </dd>
+<span class="refAuthor">Petit-Huguenin, M.</span> and <span class="refAuthor">G. Salgueiro</span>, <span class="refTitle">"Multiplexing Scheme Updates for Secure Real-time Transport Protocol (SRTP) Extension for Datagram Transport Layer Security (DTLS)"</span>, <span class="seriesInfo">RFC 7983</span>, <span class="seriesInfo">DOI 10.17487/RFC7983</span>, <time datetime="2016-09" class="refDate">September 2016</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc7983">https://datatracker.ietf.org/doc/html/rfc7983</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8201">[RFC8201]</dt>
         <dd>
-<span class="refAuthor">McCann, J.</span><span class="refAuthor">, Deering, S.</span><span class="refAuthor">, Mogul, J.</span><span class="refAuthor">, and R. Hinden, Ed.</span>, <span class="refTitle">"Path MTU Discovery for IP version 6"</span>, <span class="seriesInfo">STD 87</span>, <span class="seriesInfo">RFC 8201</span>, <span class="seriesInfo">DOI 10.17487/RFC8201</span>, <time datetime="2017-07" class="refDate">July 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8201">https://datatracker.ietf.org/doc/html/rfc8201</a>&gt;</span>. </dd>
+<span class="refAuthor">McCann, J.</span>, <span class="refAuthor">Deering, S.</span>, <span class="refAuthor">Mogul, J.</span>, and <span class="refAuthor">R. Hinden, Ed.</span>, <span class="refTitle">"Path MTU Discovery for IP version 6"</span>, <span class="seriesInfo">STD 87</span>, <span class="seriesInfo">RFC 8201</span>, <span class="seriesInfo">DOI 10.17487/RFC8201</span>, <time datetime="2017-07" class="refDate">July 2017</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8201">https://datatracker.ietf.org/doc/html/rfc8201</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="RFC8504">[RFC8504]</dt>
         <dd>
-<span class="refAuthor">Chown, T.</span><span class="refAuthor">, Loughney, J.</span><span class="refAuthor">, and T. Winters</span>, <span class="refTitle">"IPv6 Node Requirements"</span>, <span class="seriesInfo">BCP 220</span>, <span class="seriesInfo">RFC 8504</span>, <span class="seriesInfo">DOI 10.17487/RFC8504</span>, <time datetime="2019-01" class="refDate">January 2019</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8504">https://datatracker.ietf.org/doc/html/rfc8504</a>&gt;</span>. </dd>
+<span class="refAuthor">Chown, T.</span>, <span class="refAuthor">Loughney, J.</span>, and <span class="refAuthor">T. Winters</span>, <span class="refTitle">"IPv6 Node Requirements"</span>, <span class="seriesInfo">BCP 220</span>, <span class="seriesInfo">RFC 8504</span>, <span class="seriesInfo">DOI 10.17487/RFC8504</span>, <time datetime="2019-01" class="refDate">January 2019</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8504">https://datatracker.ietf.org/doc/html/rfc8504</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="TLS-ECH">[TLS-ECH]</dt>
         <dd>
-<span class="refAuthor">Rescorla, E.</span><span class="refAuthor">, Oku, K.</span><span class="refAuthor">, Sullivan, N.</span><span class="refAuthor">, and C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-10</span>, <time datetime="2021-03-08" class="refDate">8 March 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-10.txt">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-10.txt</a>&gt;</span>. </dd>
+<span class="refAuthor">Rescorla, E.</span>, <span class="refAuthor">Oku, K.</span>, <span class="refAuthor">Sullivan, N.</span>, and <span class="refAuthor">C. A. Wood</span>, <span class="refTitle">"TLS Encrypted Client Hello"</span>, <span class="refContent">Work in Progress</span>, <span class="seriesInfo">Internet-Draft, draft-ietf-tls-esni-10</span>, <time datetime="2021-03-08" class="refDate">8 March 2021</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-10.txt">https://datatracker.ietf.org/doc/html/draft-ietf-tls-esni-10.txt</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 <dt id="TMA-QOF">[TMA-QOF]</dt>
         <dd>
-<span class="refAuthor">Trammell, B.</span><span class="refAuthor">, Gugelmann, D.</span><span class="refAuthor">, and N. Brownlee</span>, <span class="refTitle">"Inline Data Integrity Signals for Passive Measurement (in Proc. TMA 2014)"</span>, <time datetime="2014-04" class="refDate">April 2014</time>. </dd>
+<span class="refAuthor">Trammell, B.</span>, <span class="refAuthor">Gugelmann, D.</span>, and <span class="refAuthor">N. Brownlee</span>, <span class="refTitle">"Inline Data Integrity Signals for Passive Measurement (in Proc. TMA 2014)"</span>, <time datetime="2014-04" class="refDate">April 2014</time>. </dd>
 <dd class="break"></dd>
 <dt id="WIRE-IMAGE">[WIRE-IMAGE]</dt>
       <dd>
-<span class="refAuthor">Trammell, B.</span><span class="refAuthor"> and M. Kuehlewind</span>, <span class="refTitle">"The Wire Image of a Network Protocol"</span>, <span class="seriesInfo">RFC 8546</span>, <span class="seriesInfo">DOI 10.17487/RFC8546</span>, <time datetime="2019-04" class="refDate">April 2019</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8546">https://datatracker.ietf.org/doc/html/rfc8546</a>&gt;</span>. </dd>
+<span class="refAuthor">Trammell, B.</span> and <span class="refAuthor">M. Kuehlewind</span>, <span class="refTitle">"The Wire Image of a Network Protocol"</span>, <span class="seriesInfo">RFC 8546</span>, <span class="seriesInfo">DOI 10.17487/RFC8546</span>, <time datetime="2019-04" class="refDate">April 2019</time>, <span>&lt;<a href="https://datatracker.ietf.org/doc/html/rfc8546">https://datatracker.ietf.org/doc/html/rfc8546</a>&gt;</span>. </dd>
 <dd class="break"></dd>
 </dl>
 </section>
