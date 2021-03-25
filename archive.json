@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-03-18T00:57:16.984656+00:00",
+  "timestamp": "2021-03-25T00:29:11.362447+00:00",
   "repo": "quicwg/ops-drafts",
   "labels": [
     {
@@ -70,6 +70,11 @@
     },
     {
       "name": "NAT section",
+      "description": "",
+      "color": "A70369"
+    },
+    {
+      "name": "UDP Filtering",
       "description": "",
       "color": "A70369"
     }
@@ -4515,7 +4520,7 @@
       ],
       "body": "Should RFC7857 also be cited? (NAT update BCP)\r\nShould RFC4787 also be cited? (behaviour for UDP NAT)",
       "createdAt": "2021-02-06T12:17:35Z",
-      "updatedAt": "2021-02-27T16:06:29Z",
+      "updatedAt": "2021-03-23T20:09:40Z",
       "closedAt": null,
       "comments": [
         {
@@ -4552,6 +4557,13 @@
           "body": "When I review \"experience\" reported in OPS drafts, I usually try to avoid wording that might convey the IETF endorses the reported behaviour, rather than be aware of the reported behaviour. I suggest this is one of these cases. \r\n\r\nSo suggest a style something like:\r\n\r\n{{?RFC4787}} requires a timeout that is not less than 2 minutes for most UDP traffic. However, protocols traversing NATs should be aware of systems using lower values, in the range of 15 to 30 seconds. A study in 2010 study ([Hatonen10]), reported that UDP applications can experience that NAT binding or other state entries expire after just thirty seconds of inactivity.\r\n",
           "createdAt": "2021-02-27T16:06:29Z",
           "updatedAt": "2021-02-27T16:06:29Z"
+        },
+        {
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "There is new proposed text on this part in PR #222 - Can review and comment any proposed changes there...? @ianswett @gorryfair ",
+          "createdAt": "2021-03-23T20:09:40Z",
+          "updatedAt": "2021-03-23T20:09:40Z"
         }
       ]
     },
@@ -5590,7 +5602,7 @@
       "id": "MDU6SXNzdWU4MTMzODI0NTE=",
       "title": "Do we need to say more about padding and DPLPMTUD in manageability?",
       "url": "https://github.com/quicwg/ops-drafts/issues/278",
-      "state": "OPEN",
+      "state": "CLOSED",
       "author": "mirjak",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
@@ -5599,8 +5611,8 @@
       ],
       "body": "This issue is branch of #194 where @gorryfair say:\r\n\r\n\"... Yes, it could be mentioned in manageability - since often QUIC packets might be rather uniform in size with occasional DLPMTUD probes?\"\r\n\r\n@mirjak said:\r\n\r\n\"Do we need still something for manageability? Or is that, at least partially, already addressed by #212 ?\"",
       "createdAt": "2021-02-22T10:50:46Z",
-      "updatedAt": "2021-02-22T13:16:45Z",
-      "closedAt": null,
+      "updatedAt": "2021-03-24T13:41:47Z",
+      "closedAt": "2021-03-24T13:41:46Z",
       "comments": [
         {
           "author": "gorryfair",
@@ -5608,6 +5620,13 @@
           "body": "This is a separate note to call out that a QUIC sender can probe the path to determine whether the PMTU can be increased. \r\n\r\nWhen #212 finally converges to text, we should check this is also covered.\r\n\r\n",
           "createdAt": "2021-02-22T11:56:53Z",
           "updatedAt": "2021-02-22T11:56:53Z"
+        },
+        {
+          "author": "britram",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "This was covered in #212, which is now merged.",
+          "createdAt": "2021-03-24T13:41:46Z",
+          "updatedAt": "2021-03-24T13:41:46Z"
         }
       ]
     },
@@ -5707,13 +5726,22 @@
       "authorAssociation": "NONE",
       "assignees": [],
       "labels": [
-        "-manageability"
+        "-manageability",
+        "editorial"
       ],
       "body": "Some feedback:\r\n\r\nSections 4.1, 3.5, 3.6 and 3.7 are all related and related to the same underlying principle, related flows and the need for them to be delivered in a predictable and consistent manner.  Is there a reason these are not in their own section or more closely tied to each other?  Are there any additional fields that should not be included in the flow calculation for future hardware or software implementors?",
       "createdAt": "2021-03-10T13:21:19Z",
-      "updatedAt": "2021-03-17T17:37:08Z",
+      "updatedAt": "2021-03-24T13:40:37Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "britram",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "3.x sections talk about things on a per-field basis, while 4.x sections address specific network management use cases, so there's a reason there's a little redundancy here.\r\n\r\nWe might look into grouping 3.5-3.7 as subsections of a new overarching section, though...",
+          "createdAt": "2021-03-24T13:40:37Z",
+          "updatedAt": "2021-03-24T13:40:37Z"
+        }
+      ]
     },
     {
       "number": 290,
@@ -5723,13 +5751,16 @@
       "state": "OPEN",
       "author": "jaredmauch",
       "authorAssociation": "NONE",
-      "assignees": [],
+      "assignees": [
+        "mirjak"
+      ],
       "labels": [
-        "-manageability"
+        "-manageability",
+        "UDP Filtering"
       ],
       "body": "You should really cite the port avoidance prior art: avoid-v4-udp-ports.  bind9 implemented this in #1440 which was implemented to avoid the problems that occurred after UDP/1434 was filtered by providers in response to the SQL Slammer attacks and the long term filtering that was left in place after this.\r\n\r\nIs there a described technique or measurement to determine what ports may be problematic?  \r\n\r\nMany operators have had to mitigate the damage of UDP based protocols on their networks and in attempt to limit the impact to well behaving ports and protocols deployed things in a limited scope, eg:\r\n\r\nhttps://mailman.nanog.org/pipermail/nanog/2018-March/094350.html\r\nhttp://mailman.nlnog.net/pipermail/nlnog/2018-March/002697.html\r\n\r\nLarge and small network operators are known to block or restrict ports and protocols due to the impact.   Akamai also has this implemented at our network edge in some locations today.\r\n\r\nWe have seen other protocols, eg: NTP start to move from 123 <-> 123 communication eg: draft-ietf-ntp-port-randomization which will face similar issues.  \r\n\r\nIs there a way to provide feedback of what ports may be limited or should be avoided?  How would an operator signal or configure this?\r\n",
       "createdAt": "2021-03-10T13:36:08Z",
-      "updatedAt": "2021-03-17T17:36:55Z",
+      "updatedAt": "2021-03-24T13:37:14Z",
       "closedAt": null,
       "comments": []
     },
@@ -5750,9 +5781,24 @@
       ],
       "body": "Sorry I missed this during the WGLC. https://quicwg.org/ops-drafts/draft-ietf-quic-applicability.html#section-6 contains a lot of good stuff but it seems like it could say more about ALPN.\r\n\r\n1) As an editorial comment ALPN is mentioned without expanding the acronym. The term `ALPN token` is used, which doesn't seem to be defined anywhere other than the HTTP/3 specification (which might be a problem or not)\r\n\r\n2) More substantial, there isn't really mention about any of the TLS or negotiation aspects of ALPN. We might see people try to offer multiple Application Protocols on the same UDP port, and using ALPN to select from them. Maybe this is more likely when QUIC can operate as both a stream-based and datagram-based protocol. \r\n\r\n3) Related to 2, new application protocols over QUIC need an ALPN protocol identifier. This is distinct from the Alt-Svc discussion in Section 6; since other protocols won't use Alt-Svc, they might overlook things. The ALPN space is large but we might benefit from some text that gives people pointers on how to register the ALPN IDs they want to use before someone gets them. For reference, I started a list of protocols at https://github.com/quicwg/base-drafts/wiki/ALPN-IDs-used-with-QUIC. Not all of those need formal registration but it is a nice illustration.",
       "createdAt": "2021-03-16T18:30:39Z",
-      "updatedAt": "2021-03-17T17:36:39Z",
+      "updatedAt": "2021-03-24T20:20:32Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "LPardue",
+          "authorAssociation": "MEMBER",
+          "body": "I'm unfortunately not coming up with some useful/actionable text here. Maybe @martinthomson or @MikeBishop has some insight that could help?\r\n",
+          "createdAt": "2021-03-24T06:39:20Z",
+          "updatedAt": "2021-03-24T06:39:20Z"
+        },
+        {
+          "author": "MikeBishop",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "It feels like the best way to incorporate this is to expand the \"protocol doesn't imply port\" discussion to also include \"port doesn't imply protocol\" before concluding with \"not being able to safely make this inference is hard.\"  #302 has a first stab at this, though it doesn't cover as much as @LPardue first suggested.  Feel free to expand on it.",
+          "createdAt": "2021-03-24T20:20:31Z",
+          "updatedAt": "2021-03-24T20:20:31Z"
+        }
+      ]
     },
     {
       "number": 293,
@@ -5762,13 +5808,16 @@
       "state": "OPEN",
       "author": "mirjak",
       "authorAssociation": "CONTRIBUTOR",
-      "assignees": [],
+      "assignees": [
+        "mirjak"
+      ],
       "labels": [
-        "-manageability"
+        "-manageability",
+        "UDP Filtering"
       ],
       "body": "@ianswett said in PR #272 on section \"Passive Network Performance Measurement and Troubleshooting\":\r\n\r\n \"I think the caution against using Connection ID needs to be a lot stronger. Things will break, users will notice. I realize that implementations have to use this to enforce that, but I believe some already are. See a comment below as well.\"",
       "createdAt": "2021-03-17T16:35:18Z",
-      "updatedAt": "2021-03-17T17:36:02Z",
+      "updatedAt": "2021-03-24T13:38:41Z",
       "closedAt": null,
       "comments": []
     },
@@ -5780,13 +5829,16 @@
       "state": "OPEN",
       "author": "mirjak",
       "authorAssociation": "CONTRIBUTOR",
-      "assignees": [],
+      "assignees": [
+        "mirjak"
+      ],
       "labels": [
-        "-manageability"
+        "-manageability",
+        "UDP Filtering"
       ],
       "body": "@ianswett said in PR #272 on the section title \"UDP Policing\":\r\n\r\n\"Policing has a slightly different meaning(token bucket policer) that's widely used, so can we find a different term in this context?\"",
       "createdAt": "2021-03-17T16:36:17Z",
-      "updatedAt": "2021-03-17T17:35:52Z",
+      "updatedAt": "2021-03-24T13:37:14Z",
       "closedAt": null,
       "comments": []
     },
@@ -5798,13 +5850,16 @@
       "state": "OPEN",
       "author": "mirjak",
       "authorAssociation": "CONTRIBUTOR",
-      "assignees": [],
+      "assignees": [
+        "mirjak"
+      ],
       "labels": [
-        "-manageability"
+        "-manageability",
+        "UDP Filtering"
       ],
       "body": "Comment from PR #272 from @ianswett on UDP policing:\r\n\r\n\"This is recommending something that relies on the 4-tuple, but particularly if there's another NAT involved, the 4-tuple may not be stable. So this puts connections in a situation where the handshake completes, they use the connection for a bit, a NAT rebind occurs, and then the connection is blackholed.\r\n\r\nThere are defenses against this problem, but this seems like a fairly dangerous recommendation.\"\r\n",
       "createdAt": "2021-03-17T16:37:56Z",
-      "updatedAt": "2021-03-17T17:35:42Z",
+      "updatedAt": "2021-03-24T13:37:27Z",
       "closedAt": null,
       "comments": []
     },
@@ -5816,13 +5871,57 @@
       "state": "OPEN",
       "author": "mirjak",
       "authorAssociation": "CONTRIBUTOR",
-      "assignees": [],
+      "assignees": [
+        "mirjak"
+      ],
       "labels": [
-        "-manageability"
+        "-manageability",
+        "UDP Filtering"
       ],
       "body": "Comment from @martinthomson from PR #272 on UDP Policing about this phrase:\r\n\r\n`space that corresponds to the fraction of UDP traffic one wishes to drop.`\r\n\r\n\"The extra words don't really help here. If anything, you need to highlight the need to block only a subset of addresses rather than a subset of packets.\"",
       "createdAt": "2021-03-17T16:40:04Z",
-      "updatedAt": "2021-03-17T17:35:35Z",
+      "updatedAt": "2021-03-24T13:37:14Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 297,
+      "id": "MDU6SXNzdWU4MzkzMzMxOTQ=",
+      "title": "Better discuss the nuance between transport error codes and application error codes",
+      "url": "https://github.com/quicwg/ops-drafts/issues/297",
+      "state": "OPEN",
+      "author": "LPardue",
+      "authorAssociation": "MEMBER",
+      "assignees": [
+        "LPardue"
+      ],
+      "labels": [
+        "-applicability"
+      ],
+      "body": "Mention of error codes is restricted to the section `Connection Closure`, which ends up also talking about STOP_SENDING and RESET_STREAM. I think it would be clearer to have a standalone section that describes the different error code spaces and the xref that in the other sections that deal with stream usage and connection closure.",
+      "createdAt": "2021-03-24T04:25:58Z",
+      "updatedAt": "2021-03-24T13:42:01Z",
+      "closedAt": null,
+      "comments": []
+    },
+    {
+      "number": 301,
+      "id": "MDU6SXNzdWU4Mzk3MjQwNjI=",
+      "title": "Merge sections 4.5 (Filtering Behavior) and 4.6 (UDP Policing)",
+      "url": "https://github.com/quicwg/ops-drafts/issues/301",
+      "state": "OPEN",
+      "author": "britram",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [
+        "mirjak"
+      ],
+      "labels": [
+        "-manageability",
+        "UDP Filtering"
+      ],
+      "body": "These two sections are slightly redundant, and could easily be merged because the advice they give is more or less identical.",
+      "createdAt": "2021-03-24T13:27:42Z",
+      "updatedAt": "2021-03-24T13:42:28Z",
       "closedAt": null,
       "comments": []
     }
@@ -15612,7 +15711,7 @@
       "id": "MDExOlB1bGxSZXF1ZXN0NTY5NzMxMTA0",
       "title": "Clarify routing stability requirement",
       "url": "https://github.com/quicwg/ops-drafts/pull/214",
-      "state": "OPEN",
+      "state": "MERGED",
       "author": "martinduke",
       "authorAssociation": "CONTRIBUTOR",
       "assignees": [],
@@ -15622,17 +15721,19 @@
       ],
       "body": "Fixes #206. \r\n\r\nDoes this make it easier to understand?",
       "createdAt": "2021-02-08T19:50:42Z",
-      "updatedAt": "2021-02-22T11:18:19Z",
+      "updatedAt": "2021-03-24T13:11:46Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
-      "baseRefOid": "3ded00f9cbd7a37a93074e9802b1bac5da52922d",
+      "baseRefOid": "e453f61d6ad072e12a6e1cc6f6c4c62e654e7d8b",
       "headRepository": "martinduke/ops-drafts",
       "headRefName": "clarify-load-balancing",
-      "headRefOid": "109a91182df8a2767085303724a03d3c28686e0d",
-      "closedAt": null,
-      "mergedAt": null,
-      "mergedBy": null,
-      "mergeCommit": null,
+      "headRefOid": "b7b9f8d57b8c3cf02f437dba1ec4e87dc1d61b47",
+      "closedAt": "2021-03-24T13:11:46Z",
+      "mergedAt": "2021-03-24T13:11:46Z",
+      "mergedBy": "britram",
+      "mergeCommit": {
+        "oid": "247d49b116e60d7747696815a6753e669099f579"
+      },
       "comments": [
         {
           "author": "mirjak",
@@ -15642,7 +15743,21 @@
           "updatedAt": "2021-02-12T12:21:10Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5MTM1MTI5",
+          "commit": {
+            "abbreviatedOid": "109a911"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "looks good to me.",
+          "createdAt": "2021-03-23T22:22:11Z",
+          "updatedAt": "2021-03-23T22:22:11Z",
+          "comments": []
+        }
+      ]
     },
     {
       "number": 219,
@@ -15862,7 +15977,7 @@
       ],
       "body": "Fixes #183. Fixes #184.\r\n\r\nI don't have a strong opinion about the point of view in this PR, though I believe it accurately reflects the discussion in the issues so far.",
       "createdAt": "2021-02-12T17:10:33Z",
-      "updatedAt": "2021-03-10T15:01:42Z",
+      "updatedAt": "2021-03-24T13:48:23Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "9570d541e5c13558dcd3fbe7e428c2cb324380ce",
@@ -16153,6 +16268,66 @@
               "body": "Yes, this is what the PR says now but that wasn't the intention of the original text.\r\n\r\nI think we should rather say something like: for QUIC we really mean it; we really, really need to have at least 2 minutes. If you do that for UDP already fine. If you don't want to do it for all UDP traffic, please try to do it at least for QUIC.",
               "createdAt": "2021-03-10T15:01:42Z",
               "updatedAt": "2021-03-10T15:01:42Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5NDg2NTI3",
+          "commit": {
+            "abbreviatedOid": "5bbc76d"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "Nearly there... I think this needs slightly more encouragement to set the timers correctly.",
+          "createdAt": "2021-03-24T09:21:01Z",
+          "updatedAt": "2021-03-24T09:25:17Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "I think I agree, so can we change this: \"For these reasons, retaining the {{?RFC4787}} limits is useful, even where devices are able to distinguish QUIC traffic from other UDP payloads.\" to something stronger, e.g. perhaps like:\r\n\"For these reasons, the limits in {{?RFC4787}} are important to avoid black-holing of packets (and hence avoid interrupting the flow of data to the client), even where devices are able to distinguish QUIC traffic from other UDP payloads.\"",
+              "createdAt": "2021-03-24T09:21:01Z",
+              "updatedAt": "2021-03-24T09:25:17Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5NTkwMjUy",
+          "commit": {
+            "abbreviatedOid": "5bbc76d"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T11:09:03Z",
+          "updatedAt": "2021-03-24T11:09:06Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "```suggestion\r\nEven though QUIC has explicitly been designed to improve robustness to NAT rebindings,\r\nwhich might look like a tempting feature to further reduce the UDP timeout and thereby\r\nminimize state, this is not recommended.  Instead it is recommended, even when lower\r\ntimers are used for other UDP traffic, to use a timer of at least two minutes for QUIC\r\ntraffic.\r\n\r\nWhile QUIC has no clear network-visible end-of-connection signal and therefore\r\ndoes require timer-based state removal, the QUIC handshake indicates confirmation\r\nof both ends that a valid bidirectional transmission is on-going. If state is removed\r\ntoo early, this could lead to black-holing of incoming packets after a short idle\r\nperiod. To detect this situation, a timer at the client needs to expire before a\r\nre-establishment can happen (if at all), which would lead to unnecessary long\r\ndelays in an otherwise working connection.\r\n\r\nFurrther, not all endpoints use routing architectures where connections will\r\nsurvive a port or address change. So even when the client revives the connection,\r\na NAT rebinding can cause a routing mismatch where a packet is not even delivered to\r\nthe server that might support address migration. \r\n\r\nFor these reasons, the limits in {{?RFC4787}} are important to avoid black-holing\r\nof packets (and hence avoid interrupting the flow of data to the client), especially\r\nwhere devices are able to distinguish QUIC traffic from other UDP payloads.\r\n```\r\n\r\nJust wanted to make a proposal to make the recommendation a bit stronger but then ended up with quite a bit a rewrite... so here is my proposal...",
+              "createdAt": "2021-03-24T11:09:03Z",
+              "updatedAt": "2021-03-24T11:10:29Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjE5NzM5MDM1",
+          "commit": {
+            "abbreviatedOid": "5bbc76d"
+          },
+          "author": "gorryfair",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-24T13:48:23Z",
+          "updatedAt": "2021-03-24T13:48:23Z",
+          "comments": [
+            {
+              "originalPosition": 41,
+              "body": "Looks better to me!\r\n\r\nCheck: /Furrther,/Further,/ or Furthermore,\r\n",
+              "createdAt": "2021-03-24T13:48:23Z",
+              "updatedAt": "2021-03-24T13:48:23Z"
             }
           ]
         }
@@ -20893,6 +21068,118 @@
           ]
         }
       ]
+    },
+    {
+      "number": 298,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTk5Mzk5NjEz",
+      "title": "Split Connection Closure discussion into two parts",
+      "url": "https://github.com/quicwg/ops-drafts/pull/298",
+      "state": "OPEN",
+      "author": "LPardue",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #297 and #175.\r\n\r\nThis ended up much larger than I anticiated but I found the old Connection Closure text quite hard to modify in a way that let me frame the graceful close additions. \r\n\r\nI think this is a net positive structural move, even if we might need to bash the section ordering and contained text.",
+      "createdAt": "2021-03-24T05:34:43Z",
+      "updatedAt": "2021-03-24T13:05:12Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "e453f61d6ad072e12a6e1cc6f6c4c62e654e7d8b",
+      "headRepository": "LPardue/ops-drafts",
+      "headRefName": "297-error-codez",
+      "headRefOid": "cd55a133c8fcff4e926cc10e425e1e0a4a36c0ba",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 299,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTk5NDI1ODA5",
+      "title": "Try to make flow control consuming and processing crisper",
+      "url": "https://github.com/quicwg/ops-drafts/pull/299",
+      "state": "OPEN",
+      "author": "LPardue",
+      "authorAssociation": "MEMBER",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #193.\r\n\r\nThis mainly wiggles the existing text around and tries to fully qualify transport vs application to help explain the ways an implementation might do things, which is independent of how an application protocol might be designed (for example H3 doesn't require incremental processing but most people come to a realizatopm that it is the best way to do things).",
+      "createdAt": "2021-03-24T06:36:17Z",
+      "updatedAt": "2021-03-24T13:05:39Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "e453f61d6ad072e12a6e1cc6f6c4c62e654e7d8b",
+      "headRepository": "LPardue/ops-drafts",
+      "headRefName": "193-flow-controlz",
+      "headRefOid": "7bad69e922c186e1404238fa4579104a53a34a2c",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
+    },
+    {
+      "number": 300,
+      "id": "MDExOlB1bGxSZXF1ZXN0NTk5NjgzMTMx",
+      "title": "Rewrite Stateful Treatment section",
+      "url": "https://github.com/quicwg/ops-drafts/pull/300",
+      "state": "OPEN",
+      "author": "britram",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Fixes #183. Fixes #184. Fixes #204\r\n\r\nThis PR replaces #222 (while retaining the semantics of all of its changes); #222 no longer merges due to major changes to the NAT and Connection ID text.",
+      "createdAt": "2021-03-24T13:18:48Z",
+      "updatedAt": "2021-03-24T13:30:48Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
+      "headRepository": "quicwg/ops-drafts",
+      "headRefName": "lets-do-222-again",
+      "headRefOid": "36119e44b382d511dcc2caa358ca159751031f38",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [
+        {
+          "author": "britram",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "fixes #204 as well",
+          "createdAt": "2021-03-24T13:30:35Z",
+          "updatedAt": "2021-03-24T13:30:35Z"
+        }
+      ],
+      "reviews": []
+    },
+    {
+      "number": 302,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjAwMDQzMzQw",
+      "title": "More ALPN discussion",
+      "url": "https://github.com/quicwg/ops-drafts/pull/302",
+      "state": "OPEN",
+      "author": "MikeBishop",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "First stab; fixes #292.",
+      "createdAt": "2021-03-24T20:19:59Z",
+      "updatedAt": "2021-03-24T20:19:59Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
+      "headRepository": "MikeBishop/ops-drafts",
+      "headRefName": "applicability/alpn",
+      "headRefOid": "2fa64c4db2f98d18d80675c2c22789628cb9c61d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": []
     }
   ]
 }
