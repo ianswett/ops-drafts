@@ -1,6 +1,6 @@
 {
   "magic": "E!vIA5L86J2I",
-  "timestamp": "2021-03-25T00:29:11.362447+00:00",
+  "timestamp": "2021-03-28T01:08:35.944990+00:00",
   "repo": "quicwg/ops-drafts",
   "labels": [
     {
@@ -5760,9 +5760,17 @@
       ],
       "body": "You should really cite the port avoidance prior art: avoid-v4-udp-ports.  bind9 implemented this in #1440 which was implemented to avoid the problems that occurred after UDP/1434 was filtered by providers in response to the SQL Slammer attacks and the long term filtering that was left in place after this.\r\n\r\nIs there a described technique or measurement to determine what ports may be problematic?  \r\n\r\nMany operators have had to mitigate the damage of UDP based protocols on their networks and in attempt to limit the impact to well behaving ports and protocols deployed things in a limited scope, eg:\r\n\r\nhttps://mailman.nanog.org/pipermail/nanog/2018-March/094350.html\r\nhttp://mailman.nlnog.net/pipermail/nlnog/2018-March/002697.html\r\n\r\nLarge and small network operators are known to block or restrict ports and protocols due to the impact.   Akamai also has this implemented at our network edge in some locations today.\r\n\r\nWe have seen other protocols, eg: NTP start to move from 123 <-> 123 communication eg: draft-ietf-ntp-port-randomization which will face similar issues.  \r\n\r\nIs there a way to provide feedback of what ports may be limited or should be avoided?  How would an operator signal or configure this?\r\n",
       "createdAt": "2021-03-10T13:36:08Z",
-      "updatedAt": "2021-03-24T13:37:14Z",
+      "updatedAt": "2021-03-25T10:33:42Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "Currently most QUIC implementations are HTTP/3 and therefore use the https port 443. However QUIC is a general purpose transport protocol and therefore future application will likely use different ports. Also ports are not really meaningful to identify applications and as such I don't think there is any good advise we could give here. Or what are you missing? Can you maybe propose text?\r\n\r\nPlease also not that PR #305 proposes a (mostly) editorial update of this section.",
+          "createdAt": "2021-03-25T10:33:42Z",
+          "updatedAt": "2021-03-25T10:33:42Z"
+        }
+      ]
     },
     {
       "number": 292,
@@ -5817,9 +5825,17 @@
       ],
       "body": "@ianswett said in PR #272 on section \"Passive Network Performance Measurement and Troubleshooting\":\r\n\r\n \"I think the caution against using Connection ID needs to be a lot stronger. Things will break, users will notice. I realize that implementations have to use this to enforce that, but I believe some already are. See a comment below as well.\"",
       "createdAt": "2021-03-17T16:35:18Z",
-      "updatedAt": "2021-03-24T13:38:41Z",
+      "updatedAt": "2021-03-25T09:54:27Z",
       "closedAt": null,
-      "comments": []
+      "comments": [
+        {
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "@ianswett is PR #306 better? Note that you should also review the previous paragraphs as I believe the problems are described there clearly already.",
+          "createdAt": "2021-03-25T09:54:27Z",
+          "updatedAt": "2021-03-25T09:54:27Z"
+        }
+      ]
     },
     {
       "number": 294,
@@ -21081,7 +21097,7 @@
       "labels": [],
       "body": "Fixes #297 and #175.\r\n\r\nThis ended up much larger than I anticiated but I found the old Connection Closure text quite hard to modify in a way that let me frame the graceful close additions. \r\n\r\nI think this is a net positive structural move, even if we might need to bash the section ordering and contained text.",
       "createdAt": "2021-03-24T05:34:43Z",
-      "updatedAt": "2021-03-24T13:05:12Z",
+      "updatedAt": "2021-03-25T19:45:47Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "e453f61d6ad072e12a6e1cc6f6c4c62e654e7d8b",
@@ -21093,7 +21109,158 @@
       "mergedBy": null,
       "mergeCommit": null,
       "comments": [],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIwMzM2NDcz",
+          "commit": {
+            "abbreviatedOid": "cd55a13"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "This looked good up until the point where it started to talk about stream limit management.",
+          "createdAt": "2021-03-25T00:36:47Z",
+          "updatedAt": "2021-03-25T00:46:00Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "```suggestion\r\nQUIC recommends that endpoints that detect errors signal the occurance to\r\n```",
+              "createdAt": "2021-03-25T00:36:47Z",
+              "updatedAt": "2021-03-25T00:46:00Z"
+            },
+            {
+              "originalPosition": 13,
+              "body": "```suggestion\r\nQUIC defines an error code space that is used for error handling at the transport layer. QUIC\r\n```",
+              "createdAt": "2021-03-25T00:37:43Z",
+              "updatedAt": "2021-03-25T00:46:00Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nis permitted including generic ones.\r\n\r\nApplications using QUIC can define an error\r\n```",
+              "createdAt": "2021-03-25T00:37:51Z",
+              "updatedAt": "2021-03-25T00:46:00Z"
+            },
+            {
+              "originalPosition": 18,
+              "body": "```suggestion\r\nexample, {{Section 8.1 of QUIC-HTTP}}). The values in an application error code\r\nspace can be reused across connection-level and stream-level errors.\r\n```\r\n\r\nThis is not completely necessary, though this is what HTTP does.  They could be separate spaces if that was what people wanted.  That is, if 2^62 error codes is not enough, you can at least double the space.",
+              "createdAt": "2021-03-25T00:39:03Z",
+              "updatedAt": "2021-03-25T00:46:00Z"
+            },
+            {
+              "originalPosition": 23,
+              "body": "```suggestion\r\nbe zero length. Different types of CONNECTION_CLOSE frame are used to\r\nsignal transport and application errors.\r\n```",
+              "createdAt": "2021-03-25T00:40:18Z",
+              "updatedAt": "2021-03-25T00:46:00Z"
+            },
+            {
+              "originalPosition": 83,
+              "body": "```suggestion\r\ntimeout values may free-up resources more quickly.\r\n```",
+              "createdAt": "2021-03-25T00:41:11Z",
+              "updatedAt": "2021-03-25T00:46:00Z"
+            },
+            {
+              "originalPosition": 102,
+              "body": "This bit about streams completely surprised me.  It's now into flow control and maximum stream limits, which really don't belong here.  If you like the text, I would suggest finding it another home.\r\n\r\n",
+              "createdAt": "2021-03-25T00:43:22Z",
+              "updatedAt": "2021-03-25T00:46:00Z"
+            },
+            {
+              "originalPosition": 109,
+              "body": "The text on graceful close should be its own paragraph.",
+              "createdAt": "2021-03-25T00:43:43Z",
+              "updatedAt": "2021-03-25T00:46:00Z"
+            },
+            {
+              "originalPosition": 113,
+              "body": "This is a little odd.  I would phrase the last sentence here more along the lines of \"receiving a stateless reset is an indication of an unrecoverable error distinct from connection errors in that there is no application-layer information provided\"",
+              "createdAt": "2021-03-25T00:45:22Z",
+              "updatedAt": "2021-03-25T00:46:00Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIwODU1NDMy",
+          "commit": {
+            "abbreviatedOid": "cd55a13"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-25T08:51:58Z",
+          "updatedAt": "2021-03-25T08:51:58Z",
+          "comments": [
+            {
+              "originalPosition": 102,
+              "body": "Yes, section 4 is on use of streams. Maybe we can just add another short subsection there to talk about the max stream limit.",
+              "createdAt": "2021-03-25T08:51:58Z",
+              "updatedAt": "2021-03-25T08:51:58Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIxNTA3Mzk4",
+          "commit": {
+            "abbreviatedOid": "cd55a13"
+          },
+          "author": "MikeBishop",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "I like the general outline, but lots of editorial nits here.  Also, you're inconsistent on whether the \"l\" gets doubled in \"signaling/signalling\" and \"signaled/signalled.\"",
+          "createdAt": "2021-03-25T19:32:51Z",
+          "updatedAt": "2021-03-25T19:45:47Z",
+          "comments": [
+            {
+              "originalPosition": 6,
+              "body": "Or perhaps \r\n```suggestion\r\nQUIC recommends that endpoints signal any detected errors to\r\n```\r\n...as both more concise and removes the mis-spelling of \"occurrence.\"",
+              "createdAt": "2021-03-25T19:32:51Z",
+              "updatedAt": "2021-03-25T19:45:48Z"
+            },
+            {
+              "originalPosition": 14,
+              "body": "```suggestion\r\nencourages endpoints to use the most specific code, although any applicable code\r\n```",
+              "createdAt": "2021-03-25T19:37:17Z",
+              "updatedAt": "2021-03-25T19:45:47Z"
+            },
+            {
+              "originalPosition": 15,
+              "body": "```suggestion\r\nis permitted, including generic ones.\r\n\r\nApplications using QUIC define an error\r\n```\r\nIt's not a \"can,\" since the spaces are distinct.  The application defines any semantics that might exist.",
+              "createdAt": "2021-03-25T19:37:42Z",
+              "updatedAt": "2021-03-25T19:45:48Z"
+            },
+            {
+              "originalPosition": 97,
+              "body": "```suggestion\r\nwould allow to be opened using the MAX_STREAMS frame, but there is no mechanism\r\n```",
+              "createdAt": "2021-03-25T19:42:23Z",
+              "updatedAt": "2021-03-25T19:45:48Z"
+            },
+            {
+              "originalPosition": 101,
+              "body": "```suggestion\r\n(see {{use-of-streams}}), abrupt closure of actively used streams may be\r\n```",
+              "createdAt": "2021-03-25T19:42:44Z",
+              "updatedAt": "2021-03-25T19:45:48Z"
+            },
+            {
+              "originalPosition": 105,
+              "body": "```suggestion\r\nenacting an immediate close. Alternatively, a graceful close mechanism can be\r\n```",
+              "createdAt": "2021-03-25T19:43:16Z",
+              "updatedAt": "2021-03-25T19:45:48Z"
+            },
+            {
+              "originalPosition": 106,
+              "body": "```suggestion\r\nused to communicate the intention to explicitly close the connection at some\r\n```",
+              "createdAt": "2021-03-25T19:43:30Z",
+              "updatedAt": "2021-03-25T19:45:48Z"
+            },
+            {
+              "originalPosition": 108,
+              "body": "```suggestion\r\ntermination; applications using QUIC can define their own graceful termination\r\n```",
+              "createdAt": "2021-03-25T19:43:51Z",
+              "updatedAt": "2021-03-25T19:45:48Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 299,
@@ -21107,7 +21274,7 @@
       "labels": [],
       "body": "Fixes #193.\r\n\r\nThis mainly wiggles the existing text around and tries to fully qualify transport vs application to help explain the ways an implementation might do things, which is independent of how an application protocol might be designed (for example H3 doesn't require incremental processing but most people come to a realizatopm that it is the best way to do things).",
       "createdAt": "2021-03-24T06:36:17Z",
-      "updatedAt": "2021-03-24T13:05:39Z",
+      "updatedAt": "2021-03-25T15:21:29Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "e453f61d6ad072e12a6e1cc6f6c4c62e654e7d8b",
@@ -21118,8 +21285,43 @@
       "mergedAt": null,
       "mergedBy": null,
       "mergeCommit": null,
-      "comments": [],
-      "reviews": []
+      "comments": [
+        {
+          "author": "gorryfair",
+          "authorAssociation": "CONTRIBUTOR",
+          "body": "The new text is good and clear, but it doesn't really explain that the when credit is released at the receiver, could we say a little more: it takes 1/2 RTT for cerdit to reach the sender, that causes new data to be released, for a large RTT, this means that credit has to be sufficient to avoid blocking or to be sent promptly, otherwise transfers will stall for periods of an RTT. (I know TCP does this stuff for the app and grows the window, but QUIC I suspect needs something to happen to release the credit). I know people closer to the Apps can write this sentence better than me; from my perspective I just see the effects when an app blocks or release credit in big chunks... over a large path RTT and the network performance suffers.",
+          "createdAt": "2021-03-25T15:21:29Z",
+          "updatedAt": "2021-03-25T15:21:29Z"
+        }
+      ],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIwMzM5OTg0",
+          "commit": {
+            "abbreviatedOid": "7bad69e"
+          },
+          "author": "martinthomson",
+          "authorAssociation": "MEMBER",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-25T00:46:53Z",
+          "updatedAt": "2021-03-25T00:48:15Z",
+          "comments": [
+            {
+              "originalPosition": 27,
+              "body": "Reorder these first two sentences:\r\n\r\n```suggestion\r\nTimely updates of transport flow control credit can improve performance.\r\nApplications that use QUIC often have a data consumer that reads data from\r\ntransport buffers. A common flow control implementation technique is for a QUIC\r\n```",
+              "createdAt": "2021-03-25T00:46:53Z",
+              "updatedAt": "2021-03-25T00:48:15Z"
+            },
+            {
+              "originalPosition": 31,
+              "body": "Incomplete sentence.",
+              "createdAt": "2021-03-25T00:47:10Z",
+              "updatedAt": "2021-03-25T00:48:15Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 300,
@@ -21133,13 +21335,13 @@
       "labels": [],
       "body": "Fixes #183. Fixes #184. Fixes #204\r\n\r\nThis PR replaces #222 (while retaining the semantics of all of its changes); #222 no longer merges due to major changes to the NAT and Connection ID text.",
       "createdAt": "2021-03-24T13:18:48Z",
-      "updatedAt": "2021-03-24T13:30:48Z",
+      "updatedAt": "2021-03-26T09:29:48Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
       "headRepository": "quicwg/ops-drafts",
       "headRefName": "lets-do-222-again",
-      "headRefOid": "36119e44b382d511dcc2caa358ca159751031f38",
+      "headRefOid": "88ac4cdfeaa5a5ee88599cacde523fdc53dd83ee",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
@@ -21153,7 +21355,88 @@
           "updatedAt": "2021-03-24T13:30:35Z"
         }
       ],
-      "reviews": []
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIxOTMwNzc0",
+          "commit": {
+            "abbreviatedOid": "36119e4"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-26T09:28:27Z",
+          "updatedAt": "2021-03-26T09:28:28Z",
+          "comments": [
+            {
+              "originalPosition": 51,
+              "body": "```suggestion\r\n\r\n```",
+              "createdAt": "2021-03-26T09:28:27Z",
+              "updatedAt": "2021-03-26T09:29:48Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIxOTMwOTcz",
+          "commit": {
+            "abbreviatedOid": "36119e4"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-26T09:28:39Z",
+          "updatedAt": "2021-03-26T09:28:39Z",
+          "comments": [
+            {
+              "originalPosition": 43,
+              "body": "```suggestion\r\n\r\n```",
+              "createdAt": "2021-03-26T09:28:39Z",
+              "updatedAt": "2021-03-26T09:29:48Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIxOTMxMDg2",
+          "commit": {
+            "abbreviatedOid": "36119e4"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-26T09:28:47Z",
+          "updatedAt": "2021-03-26T09:28:48Z",
+          "comments": [
+            {
+              "originalPosition": 56,
+              "body": "```suggestion\r\n\r\n```",
+              "createdAt": "2021-03-26T09:28:47Z",
+              "updatedAt": "2021-03-26T09:29:48Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIxOTMxNzk5",
+          "commit": {
+            "abbreviatedOid": "36119e4"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-26T09:29:34Z",
+          "updatedAt": "2021-03-26T09:29:34Z",
+          "comments": [
+            {
+              "originalPosition": 53,
+              "body": "```suggestion\r\nFurthermore, not all endpoints use routing architectures where connections\r\nwill survive a port or address change. So even when the client revives the\r\n```",
+              "createdAt": "2021-03-26T09:29:34Z",
+              "updatedAt": "2021-03-26T09:29:48Z"
+            }
+          ]
+        }
+      ]
     },
     {
       "number": 302,
@@ -21167,13 +21450,422 @@
       "labels": [],
       "body": "First stab; fixes #292.",
       "createdAt": "2021-03-24T20:19:59Z",
-      "updatedAt": "2021-03-24T20:19:59Z",
+      "updatedAt": "2021-03-27T19:05:54Z",
       "baseRepository": "quicwg/ops-drafts",
       "baseRefName": "master",
       "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
       "headRepository": "MikeBishop/ops-drafts",
       "headRefName": "applicability/alpn",
       "headRefOid": "2fa64c4db2f98d18d80675c2c22789628cb9c61d",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIwODQ4MjU4",
+          "commit": {
+            "abbreviatedOid": "2fa64c4"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-25T08:43:46Z",
+          "updatedAt": "2021-03-25T08:43:46Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIyNjk0Njg3",
+          "commit": {
+            "abbreviatedOid": "2fa64c4"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-27T19:05:54Z",
+          "updatedAt": "2021-03-27T19:05:54Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 303,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjAwNTU1ODEx",
+      "title": "add reference to draft-ietf-httpbis-priority instead H2",
+      "url": "https://github.com/quicwg/ops-drafts/pull/303",
+      "state": "OPEN",
+      "author": "mirjak",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #264",
+      "createdAt": "2021-03-25T08:57:50Z",
+      "updatedAt": "2021-03-27T19:05:07Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
+      "headRepository": "quicwg/ops-drafts",
+      "headRefName": "mirjak-patch-13",
+      "headRefOid": "150fddc32198128208354d0ee160573291504711",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIyNjk0NjM1",
+          "commit": {
+            "abbreviatedOid": "150fddc"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-27T19:05:07Z",
+          "updatedAt": "2021-03-27T19:05:07Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 304,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjAwNTU5NjE0",
+      "title": "add reference to draft-ietf-quic-version-negotiation",
+      "url": "https://github.com/quicwg/ops-drafts/pull/304",
+      "state": "OPEN",
+      "author": "mirjak",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #265",
+      "createdAt": "2021-03-25T09:04:00Z",
+      "updatedAt": "2021-03-27T19:04:30Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
+      "headRepository": "quicwg/ops-drafts",
+      "headRefName": "mirjak-patch-14",
+      "headRefOid": "a95ec0a5edd21fe1379c8724268316a5cd287733",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIyNjk0NTk5",
+          "commit": {
+            "abbreviatedOid": "a95ec0a"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-27T19:04:30Z",
+          "updatedAt": "2021-03-27T19:04:30Z",
+          "comments": []
+        }
+      ]
+    },
+    {
+      "number": 305,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjAwNTg1MTI4",
+      "title": "Update on UDP policing section",
+      "url": "https://github.com/quicwg/ops-drafts/pull/305",
+      "state": "OPEN",
+      "author": "mirjak",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #284 and fixes #296",
+      "createdAt": "2021-03-25T09:41:34Z",
+      "updatedAt": "2021-03-27T19:04:06Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
+      "headRepository": "quicwg/ops-drafts",
+      "headRefName": "mirjak-patch-15",
+      "headRefOid": "d4998aeedb47bf586402aeb53aa69c2c85ede6c1",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIwOTAzNTYy",
+          "commit": {
+            "abbreviatedOid": "25e4166"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-25T09:42:18Z",
+          "updatedAt": "2021-03-25T09:42:18Z",
+          "comments": [
+            {
+              "originalPosition": 30,
+              "body": "```suggestion\r\nFurther, if UDP traffic is throttle, it is recommended to rather block\r\n```",
+              "createdAt": "2021-03-25T09:42:18Z",
+              "updatedAt": "2021-03-25T09:56:17Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIyNjkzOTUz",
+          "commit": {
+            "abbreviatedOid": "d4998ae"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "This is a tricky one.  I think it could use on-list discussion?",
+          "createdAt": "2021-03-27T18:54:43Z",
+          "updatedAt": "2021-03-27T19:04:06Z",
+          "comments": [
+            {
+              "originalPosition": 24,
+              "body": "```suggestion\r\nthese ports, UDP flood attacks may also use the same ports. One possible\r\n```",
+              "createdAt": "2021-03-27T18:54:43Z",
+              "updatedAt": "2021-03-27T19:04:06Z"
+            },
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\r\nFurther, if UDP traffic is throttle, it is recommended to block individual\r\nQUIC flows entirely rather than dropping packets randomly. When the handshake is\r\nblocked, QUIC-capable applications may failover to TCP\r\n```",
+              "createdAt": "2021-03-27T18:58:56Z",
+              "updatedAt": "2021-03-27T19:04:06Z"
+            },
+            {
+              "originalPosition": 37,
+              "body": "```suggestion\r\nsevere packet loss (see also {{sec-filtering}}). Per-flow blocking can be\r\n```\r\n\r\nI think this is blocking, not throttling?",
+              "createdAt": "2021-03-27T18:59:43Z",
+              "updatedAt": "2021-03-27T19:04:06Z"
+            },
+            {
+              "originalPosition": 40,
+              "body": "If we're going to advise this, I think we should be clear that addresses may change for QUIC connections, and when they do, this will result in post-handshake blackholing.",
+              "createdAt": "2021-03-27T19:03:13Z",
+              "updatedAt": "2021-03-27T19:04:06Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 306,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjAwNTkyNzkw",
+      "title": "Make recommendation to not CID for NAT stronger",
+      "url": "https://github.com/quicwg/ops-drafts/pull/306",
+      "state": "OPEN",
+      "author": "mirjak",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #293",
+      "createdAt": "2021-03-25T09:52:53Z",
+      "updatedAt": "2021-03-27T18:50:38Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
+      "headRepository": "quicwg/ops-drafts",
+      "headRefName": "mirjak-patch-16",
+      "headRefOid": "4526a3f26be173045dc4292194d4cf4db29d5398",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIwOTQ1NTAw",
+          "commit": {
+            "abbreviatedOid": "aac674c"
+          },
+          "author": "mirjak",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-25T10:26:01Z",
+          "updatedAt": "2021-03-25T10:26:01Z",
+          "comments": [
+            {
+              "originalPosition": 5,
+              "body": "```suggestion\r\nwhat length it has. However, connection IDs may be renegotiated during\r\n```",
+              "createdAt": "2021-03-25T10:26:01Z",
+              "updatedAt": "2021-03-25T10:26:05Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIyNjkzNjM0",
+          "commit": {
+            "abbreviatedOid": "4526a3f"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-27T18:50:04Z",
+          "updatedAt": "2021-03-27T18:50:38Z",
+          "comments": [
+            {
+              "originalPosition": 2,
+              "body": "```suggestion\r\nIf a NAT hits an operational limit, it is recommended to drop the\r\n```",
+              "createdAt": "2021-03-27T18:50:04Z",
+              "updatedAt": "2021-03-27T18:50:38Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 307,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjAwNjE2MDM5",
+      "title": "Additional text on problem with 4-tuple for stateful devices",
+      "url": "https://github.com/quicwg/ops-drafts/pull/307",
+      "state": "OPEN",
+      "author": "mirjak",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "fixes #295",
+      "createdAt": "2021-03-25T10:25:32Z",
+      "updatedAt": "2021-03-27T18:49:06Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
+      "headRepository": "quicwg/ops-drafts",
+      "headRefName": "mirjak-patch-17",
+      "headRefOid": "70ea10c84f0e8277a11e460c8e7f2e549d3c2e01",
+      "closedAt": null,
+      "mergedAt": null,
+      "mergedBy": null,
+      "mergeCommit": null,
+      "comments": [],
+      "reviews": [
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIxNDgxNTE1",
+          "commit": {
+            "abbreviatedOid": "db094b9"
+          },
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-25T19:00:36Z",
+          "updatedAt": "2021-03-25T19:00:37Z",
+          "comments": [
+            {
+              "originalPosition": 32,
+              "body": "```suggestion\r\nchanges, stateful devices lose their state and break connectivity if state\r\n```",
+              "createdAt": "2021-03-25T19:00:36Z",
+              "updatedAt": "2021-03-26T09:25:19Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIxNDgxNzcz",
+          "commit": {
+            "abbreviatedOid": "db094b9"
+          },
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "COMMENTED",
+          "body": "",
+          "createdAt": "2021-03-25T19:00:55Z",
+          "updatedAt": "2021-03-25T19:00:56Z",
+          "comments": [
+            {
+              "originalPosition": 33,
+              "body": "```suggestion\r\nis required for forwarding, while the endpoints would otherwise survive such a\r\n```",
+              "createdAt": "2021-03-25T19:00:55Z",
+              "updatedAt": "2021-03-26T09:25:19Z"
+            }
+          ]
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIxNDgyMjcx",
+          "commit": {
+            "abbreviatedOid": "db094b9"
+          },
+          "author": "martinduke",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "",
+          "createdAt": "2021-03-25T19:01:33Z",
+          "updatedAt": "2021-03-25T19:01:33Z",
+          "comments": []
+        },
+        {
+          "id": "MDE3OlB1bGxSZXF1ZXN0UmV2aWV3NjIyNjkyOTQz",
+          "commit": {
+            "abbreviatedOid": "70ea10c"
+          },
+          "author": "ianswett",
+          "authorAssociation": "CONTRIBUTOR",
+          "state": "APPROVED",
+          "body": "LG, some editorial comments.",
+          "createdAt": "2021-03-27T18:40:16Z",
+          "updatedAt": "2021-03-27T18:49:06Z",
+          "comments": [
+            {
+              "originalPosition": 23,
+              "body": "```suggestion\r\ntimeout-based delays before this problem is detected by the endpoints and\r\n```",
+              "createdAt": "2021-03-27T18:40:16Z",
+              "updatedAt": "2021-03-27T18:49:06Z"
+            },
+            {
+              "originalPosition": 20,
+              "body": "```suggestion\r\nand unrecoverable loss of state in the middle of a connection. Specially, the\r\n```",
+              "createdAt": "2021-03-27T18:40:59Z",
+              "updatedAt": "2021-03-27T18:49:06Z"
+            },
+            {
+              "originalPosition": 26,
+              "body": "```suggestion\r\n```\r\n\r\nI'd drop this, since I think the next sentence is clearer.",
+              "createdAt": "2021-03-27T18:43:42Z",
+              "updatedAt": "2021-03-27T18:49:06Z"
+            },
+            {
+              "originalPosition": 31,
+              "body": "```suggestion\r\nnetwork devices are not able to connect QUIC connections when  the 4-tuple changes. When the 4-tuple\r\n```",
+              "createdAt": "2021-03-27T18:46:04Z",
+              "updatedAt": "2021-03-27T18:49:06Z"
+            },
+            {
+              "originalPosition": 34,
+              "body": "This last sentence is hard to read, but I unfortunately don't have a good suggestion.",
+              "createdAt": "2021-03-27T18:48:46Z",
+              "updatedAt": "2021-03-27T18:49:06Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "number": 308,
+      "id": "MDExOlB1bGxSZXF1ZXN0NjAxNzEyOTAy",
+      "title": "Reference cleanup",
+      "url": "https://github.com/quicwg/ops-drafts/pull/308",
+      "state": "OPEN",
+      "author": "MikeBishop",
+      "authorAssociation": "CONTRIBUTOR",
+      "assignees": [],
+      "labels": [],
+      "body": "Some section refs weren't linked to the sections; some objects were defined multiple ways; one reference wasn't actually cited in the text.",
+      "createdAt": "2021-03-26T15:30:34Z",
+      "updatedAt": "2021-03-26T15:30:34Z",
+      "baseRepository": "quicwg/ops-drafts",
+      "baseRefName": "master",
+      "baseRefOid": "247d49b116e60d7747696815a6753e669099f579",
+      "headRepository": "MikeBishop/ops-drafts",
+      "headRefName": "section-refs",
+      "headRefOid": "0bb3d193cc1fbc62c95f8dfacabebcbccb04f0c5",
       "closedAt": null,
       "mergedAt": null,
       "mergedBy": null,
